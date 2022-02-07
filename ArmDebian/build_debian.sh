@@ -31,7 +31,7 @@ sudo DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LA
 if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
     echo -e "\n$blue/==================================================\\\\$clear"
     echo -e "$V_line $yellow                  [ Warning ]                   $clear $V_line"
-    echo -e "$V_line $yellow          **** Build debian fail! ****          $clear $V_line"
+    echo -e "$V_line $red_flash          **** Build debian fail! ****          $clear $V_line"
     echo -e "$blue\\==================================================/$clear"
 
     exit 0
