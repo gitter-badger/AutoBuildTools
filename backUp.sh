@@ -92,21 +92,29 @@ fi
 #----------------------------------------------------------------------------------
 if [[ $Type_Chose == 6 || $Type_Chose == 9 ]]; then
 
-    cd $WINDOWS_SHARE_DIR
-    if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
-        echo -e "\n$blue/==================================================\\\\$clear"
-        echo -e "$V_line $red                    [ Fail ]                    $clear $V_line"
-        echo -e "$V_line $red      **** No windows Code connection! ****     $clear $V_line"
-        echo -e "$blue\\==================================================/$clear"
-        exit 0
-    fi
+    # cd $WINDOWS_SHARE_DIR
+    # if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+    #     echo -e "\n$blue/==================================================\\\\$clear"
+    #     echo -e "$V_line $red                    [ Fail ]                    $clear $V_line"
+    #     echo -e "$V_line $red      **** No windows Code connection! ****     $clear $V_line"
+    #     echo -e "$blue\\==================================================/$clear"
+    #     exit 0
+    # fi
 
-    echo -e "\n$blue/==================================================\\\\$clear"
-    echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
+    
 
     if [[ $Type_Chose -eq 9 ]]; then            # 备份;
-        rm ./shell/$SHELL_NAME/ -fr
-        cp $SHELL_ROOT_PATH ./shell/ -rf
+        cd $SHELL_ROOT_PATH
+        git add .
+        
+        echo -e "\n Please input commit message:\n"
+        read git_MSG
+
+        git commit -m "$git_MSG"
+        git push origin master
+        
+        echo -e "\n$blue/==================================================\\\\$clear"
+        echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
         echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
     elif [[ $Type_Chose -eq 6 ]]; then          # 恢复;
         rm $SHELL_ROOT_PATH -fr
