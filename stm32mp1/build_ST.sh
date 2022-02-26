@@ -83,6 +83,6 @@ elif [[ $Type_Chose -eq 11 || $Type_Chose -eq 22 ]]; then
     CoreBoardModel="Atk"
     . ./flashFirmware.sh
 elif [[ $Type_Chose -eq 33 || $Type_Chose -eq 44 ]]; then
-    CoreBoardModel="Biqu"
+    CoreBoardModel="${CompanyLogo}"
     . ./flashFirmware.sh
 fi

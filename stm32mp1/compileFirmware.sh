@@ -10,13 +10,13 @@ if [ $linuxVersion == "5.4" ]; then
                 echo -e "\n$green -------------------- $clear\n"
 
                 make -f ../Makefile.sdk clean 
-                make -f ../Makefile.sdk TFA_DEVICETREE=stm32mp157d-biqu TF_A_CONFIG=serialboot ELF_DEBUG_ENABLE='1' all
-                cp ../build/serialboot/tf-a-stm32mp157d-biqu-serialboot.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
+                make -f ../Makefile.sdk TFA_DEVICETREE=stm32mp157d-${CompanyLogo} TF_A_CONFIG=serialboot ELF_DEBUG_ENABLE='1' all
+                cp ../build/serialboot/tf-a-stm32mp157d-${CompanyLogo}-serialboot.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
                 sync
                 
                 make -f ../Makefile.sdk clean
-                make -f ../Makefile.sdk TFA_DEVICETREE=stm32mp157d-biqu-sr TF_A_CONFIG=serialboot ELF_DEBUG_ENABLE='1' all
-                cp ../build/serialboot/tf-a-stm32mp157d-biqu-sr-serialboot.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
+                make -f ../Makefile.sdk TFA_DEVICETREE=stm32mp157d-${CompanyLogo}-sr TF_A_CONFIG=serialboot ELF_DEBUG_ENABLE='1' all
+                cp ../build/serialboot/tf-a-stm32mp157d-${CompanyLogo}-sr-serialboot.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
                 make -f ../Makefile.sdk clean
                 sync
 
@@ -24,8 +24,8 @@ if [ $linuxVersion == "5.4" ]; then
 
                 echo -e "\n$green **** Copy file... ****$clear\n"
 
-                cp ../build/trusted/tf-a-stm32mp157d-biqu-trusted.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
-                cp ../build/trusted/tf-a-stm32mp157d-biqu-sr-trusted.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
+                cp ../build/trusted/tf-a-stm32mp157d-${CompanyLogo}-trusted.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
+                cp ../build/trusted/tf-a-stm32mp157d-${CompanyLogo}-sr-trusted.stm32 $PATH_UPDATE/STlinux5.4/tf-a/
 
                 sync
 
@@ -40,16 +40,16 @@ if [ $linuxVersion == "5.4" ]; then
             if [[ $Compile_u_boot_YN == "y" || $Compile_u_boot_YN == "Y" ]]; then
                 echo -e "\n$green -------------------- $clear\n"
 
-                # make V=1 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- DEVICE_TREE=stm32mp157d-biqu all -j8
-                make DEVICE_TREE=stm32mp157d-biqu all -j8
+                # make V=1 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- DEVICE_TREE=stm32mp157d-${CompanyLogo} all -j8
+                make DEVICE_TREE=stm32mp157d-${CompanyLogo} all -j8
                 
-                #make DEVICE_TREE=stm32mp157d-biqu UBOOT_CONFIGS=stm32mp15_biqu_trusted_defconfig,trusted,u-boot.stm32 all
+                #make DEVICE_TREE=stm32mp157d-${CompanyLogo} UBOOT_CONFIGS=stm32mp15_${CompanyLogo}_trusted_defconfig,trusted,u-boot.stm32 all
 
                 echo -e "\n$green **** Copy file... ****$clear\n"
 
                 # cp ./u-boot.stm32 $PATH_UPDATE/STlinux5.4/u-boot/
-                cp ./u-boot.stm32 $PATH_UPDATE/STlinux5.4/u-boot/u-boot-stm32mp157d-biqu.stm32
-                cp ./u-boot.stm32 $PATH_UPDATE/STlinux5.4/u-boot/u-boot-stm32mp157d-biqu-sr.stm32
+                cp ./u-boot.stm32 $PATH_UPDATE/STlinux5.4/u-boot/u-boot-stm32mp157d-${CompanyLogo}.stm32
+                cp ./u-boot.stm32 $PATH_UPDATE/STlinux5.4/u-boot/u-boot-stm32mp157d-${CompanyLogo}-sr.stm32
 
                 sync
                 
@@ -67,7 +67,7 @@ if [ $linuxVersion == "5.4" ]; then
                 read ModuleInstall_YN
 
                 echo -e "\n$green ------ make menuconfig ------ $clear\n"
-                # make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_biqu_defconfig
+                # make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_${CompanyLogo}_defconfig
                 
                 make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- menuconfig
                 
@@ -89,15 +89,15 @@ if [ $linuxVersion == "5.4" ]; then
                 fi
 
                 echo -e "\n$green **** Compile kernel... ****$clear\n"
-                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- DEVICE_TREE=stm32mp157d-biqu uImage dtbs LOADADDR=0XC2000040 -j16
+                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- DEVICE_TREE=stm32mp157d-${CompanyLogo} uImage dtbs LOADADDR=0XC2000040 -j16
 
                 echo -e "\n$green **** Copy file... ****$clear\n"
 
                 cp $PWD/arch/arm/boot/uImage $PATH_UPDATE/tftpboot/
-                cp $PWD/arch/arm/boot/dts/stm32mp157d-biqu.dtb $PATH_UPDATE/tftpboot/
+                cp $PWD/arch/arm/boot/dts/stm32mp157d-${CompanyLogo}.dtb $PATH_UPDATE/tftpboot/
 
                 cp $PWD/arch/arm/boot/uImage $PATH_UPDATE/STlinux5.4/bootfs/
-                cp $PWD/arch/arm/boot/dts/stm32mp157d-biqu.dtb $PATH_UPDATE/STlinux5.4/bootfs/
+                cp $PWD/arch/arm/boot/dts/stm32mp157d-${CompanyLogo}.dtb $PATH_UPDATE/STlinux5.4/bootfs/
 
                 echo -e "\n$green **** Packing bootfs... ****$clear\n"
 
@@ -106,9 +106,9 @@ if [ $linuxVersion == "5.4" ]; then
                 mkfs.ext4 -L bootfs bootfs.ext4
 
                 sudo mount bootfs.ext4 /mnt/bootfs/
-                sudo cp uImage stm32mp157d-biqu.dtb /mnt/bootfs/
+                sudo cp uImage stm32mp157d-${CompanyLogo}.dtb /mnt/bootfs/
                 sudo umount /mnt/bootfs
-                mv bootfs.ext4 $PATH_UPDATE/STlinux5.4/biqu-image-bootfs.ext4
+                mv bootfs.ext4 $PATH_UPDATE/STlinux5.4/${CompanyLogo}-image-bootfs.ext4
                 
                 sync
 
@@ -131,10 +131,10 @@ if [ $linuxVersion == "5.4" ]; then
                 echo -e "\n$green **** Copy file... ****$clear\n"
 
                 cp $PWD/arch/arm/boot/uImage $PATH_UPDATE/tftpboot/
-                cp $PWD/arch/arm/boot/dts/stm32mp157d-biqu.dtb $PATH_UPDATE/tftpboot/
+                cp $PWD/arch/arm/boot/dts/stm32mp157d-${CompanyLogo}.dtb $PATH_UPDATE/tftpboot/
 
                 cp $PWD/arch/arm/boot/uImage $PATH_UPDATE/STlinux5.4/bootfs/
-                cp $PWD/arch/arm/boot/dts/stm32mp157d-biqu.dtb $PATH_UPDATE/STlinux5.4/bootfs/
+                cp $PWD/arch/arm/boot/dts/stm32mp157d-${CompanyLogo}.dtb $PATH_UPDATE/STlinux5.4/bootfs/
 
                 echo -e "\n$green **** Build busybox complete! ****$clear\n"
             fi
@@ -155,11 +155,11 @@ elif [ $linuxVersion == "5.10" ]; then
 
                 echo -e "\n$green **** Copy file... ****$clear\n"
 
-                cp ../../FIP_artifacts/fip/fip-stm32mp157d-biqu-trusted.bin ~/STM32MP157/install
-                cp ../build/usb/tf-a-stm32mp157d-biqu.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-biqu-usb.stm32
+                cp ../../FIP_artifacts/fip/fip-stm32mp157d-${CompanyLogo}-trusted.bin ~/STM32MP157/install
+                cp ../build/usb/tf-a-stm32mp157d-${CompanyLogo}.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-${CompanyLogo}-usb.stm32
                 
-                cp ../build/emmc/tf-a-stm32mp157d-biqu.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-biqu-emmc.stm32
-                cp ../build/sdcard/tf-a-stm32mp157d-biqu.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-biqu-sdcard.stm32
+                cp ../build/emmc/tf-a-stm32mp157d-${CompanyLogo}.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-${CompanyLogo}-emmc.stm32
+                cp ../build/sdcard/tf-a-stm32mp157d-${CompanyLogo}.stm32 ~/STM32MP157/install/tf-a-stm32mp157d-${CompanyLogo}-sdcard.stm32
  
                 echo -e "\n$green **** Build TF-A complete! ****$clear\n"
             fi
@@ -176,12 +176,12 @@ elif [ $linuxVersion == "5.10" ]; then
                 #make -f $PWD/../Makefile.sdk all
                 # make -f $PWD/../Makefile.sdk all UBOOT_CONFIG=trusted UBOOT_DEFCONFIG=stm32mp15_trusted_defconfig UBOOT_BINARY=u-boot.dtb DEVICETREE=stm32mp157d-ev1
                 
-                make stm32mp15_biqu_trusted_defconfig
-                make DEVICE_TREE=stm32mp157d-biqu UBOOT_CONFIGS=stm32mp15_biqu_trusted_defconfig,trusted,u-boot.stm32 all
+                make stm32mp15_${CompanyLogo}_trusted_defconfig
+                make DEVICE_TREE=stm32mp157d-${CompanyLogo} UBOOT_CONFIGS=stm32mp15_${CompanyLogo}_trusted_defconfig,trusted,u-boot.stm32 all
 
                 echo -e "\n **** Copy file... ****\n"
 
-                cp ../../FIP_artifacts/fip/fip-stm32mp157d-biqu-trusted.bin ~/STM32MP157/install/u-boot-stm32mp157d-biqu-trusted.bin
+                cp ../../FIP_artifacts/fip/fip-stm32mp157d-${CompanyLogo}-trusted.bin ~/STM32MP157/install/u-boot-stm32mp157d-${CompanyLogo}-trusted.bin
                 echo -e "\n **** Build u-boot complete! ****\n"
             fi
         ;;

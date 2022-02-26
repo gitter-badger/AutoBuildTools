@@ -21,7 +21,7 @@ if [ $linuxVersion == "5.4" ]; then
             then
 
                 make distclean
-                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_biqu_defconfig
+                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_${CompanyLogo}_defconfig
                 
                 echo -e "\n **** Clean u-boot complete! ****\n"
             fi
@@ -35,7 +35,7 @@ if [ $linuxVersion == "5.4" ]; then
             then
 
                 make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- distclean
-                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_biqu_defconfig
+                make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabihf- stm32mp157d_${CompanyLogo}_defconfig
 
                 echo -e "\n **** Clean kernel complete! ****\n"
             fi

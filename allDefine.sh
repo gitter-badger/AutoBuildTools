@@ -3,14 +3,17 @@
 linuxVersion="5.4"
 CoreBoardModel="Atk"
 
+# 用作备份标识
+CompanyLogo=biqu
+
 USERNAME=lodge
 MOUNT_DIR=rootfs
 
 WindowsIP=192.168.0.203
 
 # ======== PATH ========
-SHELL_NAME=AutoBuild
-SHELL_ROOT_PATH=/home/lodge/Code/shell/$SHELL_NAME
+SHELL_NAME=AutoBuildTools
+SHELL_ROOT_PATH=/home/$USERNAME/Code/$SHELL_NAME
 
 WINDOWS_SHARE_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=code         # windows 共享文件夹;
 WINDOWS_BACKUP_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=backup
@@ -27,7 +30,7 @@ PATH_ST_WORKSPACE=/home/lodge/STM32MP157
 PATH_UPDATE=$PATH_ST_WORKSPACE/flash_Image
 
 PATH_FACTORY_IMAGE=$PATH_ST_WORKSPACE/flash_Image/DefaultImage
-PATH_BUILD_SHELL=$PATH_ST_WORKSPACE/../Code/shell/AutoBuild/stm32mp1
+PATH_BUILD_SHELL=$SHELL_ROOT_PATH/stm32mp1
 
 PATH_ST_SOURCE_5_4=$PATH_ST_WORKSPACE/openSTLinux-5.4
 PATH_ST_SOURCE_5_10=$PATH_ST_WORKSPACE/openSTLinux-5.10
@@ -53,13 +56,6 @@ PATH_PI_SOURCE_pi4=$PATH_PI_WORKSPACE/linux/Pi4
 
 
 # backup
-
-
-# PATH
-SourceDir_openSTLinux5_4=/home/lodge/STM32MP157/openSTLinux-5.4
-SourceDir_openSTLinux5_10=/home/lodge/STM32MP157/openSTLinux-5.10
-
-BackUpDir=/home/lodge/BackUp
 
 
 

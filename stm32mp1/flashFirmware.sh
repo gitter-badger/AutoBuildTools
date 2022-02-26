@@ -53,15 +53,15 @@ if [[ $Type_Chose -eq 11 || $Type_Chose -eq 33 ]]; then
 
             if [ $CoreBoardModel == "Atk" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_bootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_bootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_bootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_bootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
                 fi
-            elif [ $CoreBoardModel == "Biqu" ]; then
+            elif [ $CoreBoardModel == "${CompanyLogo}" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_bootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_bootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_bootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_bootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
                 fi
             fi
             
@@ -70,15 +70,15 @@ if [[ $Type_Chose -eq 11 || $Type_Chose -eq 33 ]]; then
 
             if [ $CoreBoardModel == "Atk" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_bootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_bootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_bootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_bootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
                 fi
-            elif [ $CoreBoardModel == "Biqu" ]; then
+            elif [ $CoreBoardModel == "${CompanyLogo}" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_bootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_bootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_bootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_bootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
                 fi
             fi
             
@@ -106,15 +106,15 @@ elif [[ $Type_Chose -eq 22 || $Type_Chose -eq 44 ]]; then
 
             if [ $CoreBoardModel == "Atk" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_rootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_rootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_rootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_rootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
                 fi
-            elif [ $CoreBoardModel == "Biqu" ]; then
+            elif [ $CoreBoardModel == "${CompanyLogo}" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_rootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_rootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_emmc_rootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_emmc_rootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
                 fi
             fi
             
@@ -123,15 +123,15 @@ elif [[ $Type_Chose -eq 22 || $Type_Chose -eq 44 ]]; then
 
             if [ $CoreBoardModel == "Atk" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_rootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_rootfs-stm32mp157d_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_rootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_rootfs-stm32mp157d_STlinux5.10.tsv -tm 20000
                 fi
-            elif [ $CoreBoardModel == "Biqu" ]; then
+            elif [ $CoreBoardModel == "${CompanyLogo}" ]; then
                 if [ $linuxVersion == "5.4" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_rootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_rootfs-stm32mp157d-sr_STlinux5.4.tsv -tm 20000
                 elif [ $linuxVersion == "5.10" ]; then
-                    STM32_Programmer_CLI -c port=usb1 -w biqu_sdcard_rootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
+                    STM32_Programmer_CLI -c port=usb1 -w ${CompanyLogo}_sdcard_rootfs-stm32mp157d-sr_STlinux5.10.tsv -tm 20000
                 fi
             fi
             

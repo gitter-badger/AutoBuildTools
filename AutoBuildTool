@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/lodge/Code/shell/AutoBuild
+cd /home/lodge/Code/AutoBuildTools
 
 . ./allDefine.sh
 
@@ -17,9 +17,7 @@ if [ $# == 0 ]; then
         echo -e "$V_line $skyblue                 [ Main Menu ]                  $clear $V_line"
         echo -e "$V_line            $yellow***** Please choose *****$clear             $V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
-        echo -e "$V_line $yellow  [55]:$clear$blue Back up all data!                        $clear$V_line"
-        echo -e "$blue|--------------------------------------------------|$clear"
-        echo -e "$V_line$green_flash              ** Build ArmDebian **               $clear$V_line"
+        echo -e "$V_line$green_flash        ** Build ArmDebian file-system**          $clear$V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
         echo -e "$V_line $yellow  101:$clear buster          $V_line $yellow  102:$clear bullseye         $V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
@@ -37,7 +35,7 @@ if [ $# == 0 ]; then
         echo -e "$blue|--------------------------------------------------|$clear"
         echo -e "$V_line $yellow  5:$clear all build                                   $V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
-        echo -e "$V_line                                  $purple Q/q: Quit!$clear     $V_line"
+        echo -e "$V_line                          $purple Q/B: Quit or Backup!$clear   $V_line"
         echo -e "$blue\\==================================================/$clear"
         echo -e "$yellow\n Your choice:$clear \c "
         
@@ -47,11 +45,17 @@ if [ $# == 0 ]; then
             exit 0
         fi
 
-        if [[ $Type_Chose -eq 9 || $Type_Chose -eq 55 || $Type_Chose -eq 101 || $Type_Chose -eq 102 ]]; then
+        if [[ $Type_Chose == "B" || $Type_Chose == "b" ]]; then     # 备份;
+            cd $SHELL_ROOT_PATH
+            . ./backUp.sh
+            exit 0
+        fi
+
+        if [[ $Type_Chose -eq 9 || $Type_Chose -eq 101 || $Type_Chose -eq 102 ]]; then
             break
         fi
 
-        if [[ $Type_Chose -ge 1 && $Type_Chose -le 5 ]]; then
+        if [[ $Type_Chose -ge 1 && $Type_Chose -le 5 ]]; then       # 跳出循环;
             CycleSelect=0
         fi
 
@@ -81,6 +85,7 @@ elif [[ $Type_Chose -eq 2 ]]; then
 #----------------------------------------------------
 elif [[ $Type_Chose -eq 5 ]]; then
     . ./Orangepi-H616/All_build.sh
+    exit 0
 
 #----------------------------------------------------
 elif [[ $Type_Chose -eq 3 || $Type_Chose -eq 4 ]]; then
@@ -115,9 +120,6 @@ elif [[ $Type_Chose -eq 3 || $Type_Chose -eq 4 ]]; then
 elif [[ $Type_Chose -eq 9 ]]; then      # 恢复出厂镜像;
     upload_mode="factory"       
     . ./stm32mp1/flashFirmware.sh
-elif [[ $Type_Chose -eq 55 ]]; then     # 备份
-    cd $SHELL_ROOT_PATH
-    . ./backUp.sh
 
 #----------------------------------------------------
 elif [[ $Type_Chose -eq 101 || $Type_Chose -eq 102 ]]; then
