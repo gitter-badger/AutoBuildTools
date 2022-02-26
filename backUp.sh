@@ -87,7 +87,7 @@ if [[ $Type_Chose -eq 9 ]]; then            # This script;
         git commit -m "$git_MSG"
         git push -u origin master
 
-        if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+        if [ $? == 0 ]; then        # 判断上一条命令是否成功执行;
             echo -e "\n$blue/==================================================\\\\$clear"
             echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
             echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
@@ -106,7 +106,7 @@ if [[ $Type_Chose -eq 9 ]]; then            # This script;
 
         git clone --depth 1 git@github.com:hsl416604093/AutoBuildTools.git
 
-        if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+        if [ $? == 0 ]; then        # 判断上一条命令是否成功执行;
             echo -e "\n$blue/==================================================\\\\$clear"
             echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
             echo -e "$V_line $green         **** Recovery Successful! ****         $clear $V_line"
@@ -119,6 +119,7 @@ if [[ $Type_Chose -eq 9 ]]; then            # This script;
         fi
     fi
 
+    exit 0
 fi
 
 #----------------------------------------------------------------------------------
@@ -137,12 +138,12 @@ case $Type_Chose in                         # stm32mp157
             git commit -m "$git_MSG"
             git push -u origin openSTlinux5.4_TF-a
 
-            if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+            if [ $? == 0 ]; then        # 判断上一条命令是否成功执行;
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
                 echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
                 echo -e "$blue\\==================================================/$clear"
-            elif
+            else
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $red                  [  Warning  ]                 $clear $V_line"
                 echo -e "$V_line $red            **** Backup failed! ****            $clear $V_line"
@@ -170,12 +171,12 @@ case $Type_Chose in                         # stm32mp157
             git commit -m "$git_MSG"
             git push -u origin openSTlinux5.4_u-boot
 
-            if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+            if [ $? == 0 ]; then        # 判断上一条命令是否成功执行;
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
                 echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
                 echo -e "$blue\\==================================================/$clear"
-            elif
+            else
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $red                  [  Warning  ]                 $clear $V_line"
                 echo -e "$V_line $red            **** Backup failed! ****            $clear $V_line"
@@ -203,12 +204,12 @@ case $Type_Chose in                         # stm32mp157
             git commit -m "$git_MSG"
             git push -u origin openSTlinux5.4_linux
 
-            if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
+            if [ $? == 0 ]; then        # 判断上一条命令是否成功执行;
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
                 echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
                 echo -e "$blue\\==================================================/$clear"
-            elif
+            else
                 echo -e "\n$blue/==================================================\\\\$clear"
                 echo -e "$V_line $red                  [  Warning  ]                 $clear $V_line"
                 echo -e "$V_line $red            **** Backup failed! ****            $clear $V_line"
