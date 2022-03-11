@@ -46,7 +46,7 @@ if [ $# == 0 ]; then
         fi
 
         if [[ $Type_Chose == "B" || $Type_Chose == "b" ]]; then     # 备份;
-            cd $SHELL_ROOT_PATH
+            cd $SHELL_ROOT_PATH/WorkBuild
             . ./backUp.sh
             exit 0
         fi

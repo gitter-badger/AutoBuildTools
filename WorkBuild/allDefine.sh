@@ -13,7 +13,7 @@ WindowsIP=192.168.0.203
 
 # ======== PATH ========
 SHELL_NAME=AutoBuildTools
-SHELL_ROOT_PATH=/home/$USERNAME/Code/$SHELL_NAME/WorkBuild
+SHELL_ROOT_PATH=/home/$USERNAME/Code/$SHELL_NAME
 
 WINDOWS_SHARE_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=code         # windows 共享文件夹;
 WINDOWS_BACKUP_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=backup
