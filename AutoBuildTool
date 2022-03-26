@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/lodge/Code/AutoBuildTools/WorkBuild/
+cd /home/lodge/Code/AutoBuildTools/
 
 . ./allDefine.sh
 
@@ -46,7 +46,7 @@ if [ $# == 0 ]; then
         fi
 
         if [[ $Type_Chose == "B" || $Type_Chose == "b" ]]; then     # 备份;
-            cd $SHELL_ROOT_PATH/WorkBuild
+            cd $SHELL_ROOT_PATH/
             . ./backUp.sh
             exit 0
         fi
@@ -84,7 +84,7 @@ elif [[ $Type_Chose -eq 2 ]]; then
 
 #----------------------------------------------------
 elif [[ $Type_Chose -eq 5 ]]; then
-    . ./Orangepi-H616/All_build.sh
+    . ./H616/All_build.sh
     exit 0
 
 #----------------------------------------------------
