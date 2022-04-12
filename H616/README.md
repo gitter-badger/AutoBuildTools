@@ -1,4 +1,19 @@
+<!-- vscode-markdown-toc -->
+* 1. [内核修改](#)
+	* 1.1. [1、mcp2515 驱动移植](#mcp2515)
+* 2. [软件安装](#-1)
+	* 2.1. [1、can 工具](#can)
+* 3. [开机后操作](#-1)
+	* 3.1. [1、can初始化](#can-1)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
 # H616 文件系统修改记录
+
 
 
 在 orangepi 官方编译脚本生成的 buster 系统之上修改,kernel Ver5.13.0
@@ -9,8 +24,8 @@
 
 ![资源下载页](https://user-images.githubusercontent.com/26021085/155490550-e6313fc0-dd3f-400d-9d35-14f9ca777399.png)
 
-## 内核修改
-### 1、mcp2515 驱动移植
+##  1. <a name=''></a>内核修改
+###  1.1. <a name='mcp2515'></a>1、mcp2515 驱动移植
 主要功能：spi转can
 
 设备树修改：arch\arm64\boot\dts\allwinner\sun50i-h616-orangepi-zero2.dts
@@ -71,14 +86,14 @@ mcp2515_clock: mcp2515_clock {
 
 <https://blog.csdn.net/a13698709128/article/details/104484467/>
 
-## 软件安装
-### 1、can 工具
+##  2. <a name='-1'></a>软件安装
+###  2.1. <a name='can'></a>1、can 工具
 ``` bash
 sudo apt install can-utils iproute2
 ```
 
-## 开机后操作
-### 1、can初始化
+##  3. <a name='-1'></a>开机后操作
+###  3.1. <a name='can-1'></a>1、can初始化
 ``` bash
 sudo ip link set can0 type can bitrate 250000   # 设置波特率
 
