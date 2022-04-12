@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd /home/lodge/Code/AutoBuildTools/
+SRC="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"      # 取得当前执行的 shell 文件所在的绝对路径;
+
+cd $SRC
+
+pwd
+#================================================================
 
 . ./allDefine.sh
 

@@ -14,11 +14,11 @@ sudo sed -i "s/verbosity=1/verbosity=7/" /boot/orangepiEnv.txt
 
 if [ -f "./linux-u-boot-current-orangepizero2_2.1.8_arm64.deb" ];then
     echo -e "\n **** remove uboot ****\n"
-#    sudo apt purge -y linux-u-boot-orangepizero2-current
+    sudo apt purge -y linux-u-boot-orangepizero2-current
     echo -e "\n **** install uboot ****\n"
-#    sudo dpkg -i linux-u-boot-current-orangepizero2_2.1.8_arm64.deb
+    sudo dpkg -i linux-u-boot-current-orangepizero2_2.1.8_arm64.deb
 
-#    sudo nand-sata-install
+    sudo nand-sata-install
 fi
 
 if [ -f "./linux-dtb-current-sun50iw9_2.1.8_arm64.deb" ];then
