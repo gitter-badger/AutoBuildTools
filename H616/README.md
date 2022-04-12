@@ -1,20 +1,21 @@
-<!-- vscode-markdown-toc -->
-* 1. [内核修改](#)
-	* 1.1. [1、mcp2515 驱动移植](#mcp2515)
-* 2. [软件安装](#-1)
-	* 2.1. [1、can 工具](#can)
-* 3. [开机后操作](#-1)
-	* 3.1. [1、can初始化](#can-1)
+- [0. 说明](#0-说明)
+- [1. 内核修改](#1-内核修改)
+  - [1.1 mcp2515驱动移植](#11-mcp2515驱动移植)
+  - [1.2 wifi驱动移植(TL8189FCB)](#12-wifi驱动移植tl8189fcb)
+    - [1.2.1 概述](#121-概述)
+    - [1.2.2 驱动源码下载](#122-驱动源码下载)
+    - [1.2.3 驱动移植](#123-驱动移植)
+    - [1.2.4 模块加载测试](#124-模块加载测试)
+- [2. 软件安装](#2-软件安装)
+  - [2.1 can 工具](#21-can-工具)
+  - [2.2 wifi 工具](#22-wifi-工具)
+- [3. 开机后操作](#3-开机后操作)
+  - [3.1 can初始化](#31-can初始化)
+  - [3.2 wifi自动连接](#32-wifi自动连接)
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+---
 
-# H616 文件系统修改记录
-
-
+# 0. 说明
 
 在 orangepi 官方编译脚本生成的 buster 系统之上修改,kernel Ver5.13.0
 
@@ -24,11 +25,13 @@
 
 ![资源下载页](https://user-images.githubusercontent.com/26021085/155490550-e6313fc0-dd3f-400d-9d35-14f9ca777399.png)
 
-##  1. <a name=''></a>内核修改
-###  1.1. <a name='mcp2515'></a>1、mcp2515 驱动移植
+#  1. 内核修改
+
+##  1.1 mcp2515驱动移植
+
 主要功能：spi转can
 
-设备树修改：arch\arm64\boot\dts\allwinner\sun50i-h616-orangepi-zero2.dts
+设备树修改：`arch\arm64\boot\dts\allwinner\sun50i-h616-orangepi-zero2.dts`
 ``` makefile
 mcp2515_clock: mcp2515_clock {
 		compatible = "fixed-clock";
@@ -86,14 +89,124 @@ mcp2515_clock: mcp2515_clock {
 
 <https://blog.csdn.net/a13698709128/article/details/104484467/>
 
-##  2. <a name='-1'></a>软件安装
-###  2.1. <a name='can'></a>1、can 工具
+## 1.2 wifi驱动移植(TL8189FCB)
+
+### 1.2.1 概述
+
+TL8189FCB 模组采用了 Realtek RTL8189FTV-VC-CG 芯片设计, 具有 802.11n 无线局域网(WLAN)网络和 SDIO 接口(兼容 SDIO 1.1/ 2.0)控制器。
+
+引脚定义：
+
+![TL8189FCB](https://user-images.githubusercontent.com/26021085/162897932-29ca1cf4-951e-412b-acb2-54fb59a1f09f.png)
+
+注意：引脚电压保证稳定`3.3v`。
+
+### 1.2.2 驱动源码下载
+
+``` bash
+git clone https://github.com/jwrdegoede/rtl8189ES_linux.git
+cd rtl8189ES_linux
+git checkout -B rtl8189fs origin/rtl8189fs
+```
+
+### 1.2.3 驱动移植
+
+将源码拷贝到 `\drivers\net\wireless\`，`rtl8189ES_linux` 文件夹重命名为 `rtl8189fs`
+
+修改文件 `\drivers\net\wireless\Makefile`，添加
+```
+obj-$(CONFIG_RTL8189FS) += rtl8189fs/
+```
+
+修改文件 `\drivers\net\wireless\Kconfig`，添加
+```
+source "drivers/net/wireless/rtl8189fs/Kconfig"
+```
+
+设备树修改：`arch\arm64\boot\dts\allwinner\sun50i-h616-orangepi-zero2.dts`
+``` makefile
+wifi_pwrseq: wifi-pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		// clocks = <&rtc 1>;
+		// clock-names = "osc32k-out";
+		reset-gpios = <&pio 6 18 GPIO_ACTIVE_LOW>; /* PG18 */
+		post-power-on-delay-ms = <400>;
+	};
+    
+&mmc1 {
+	vmmc-supply = <&reg_dldo1>;
+	vqmmc-supply = <&reg_dldo1>;
+	mmc-pwrseq = <&wifi_pwrseq>;
+
+	max-frequency = <400000>;
+	// max-frequency = <120000000>;
+
+	reset-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
+
+	bus-width = <4>;
+	non-removable;
+	keep-power-in-suspend;
+
+	status = "okay";
+};
+```
+
+内核配置上勾选 (M)rtl8189fs，编译生成模块。
+
+
+关闭驱动打印调试信息
+修改文件 `\drivers\net\wireless\rtl8189fs\include\autoconf.h`，屏蔽 `CONFIG_DEBUG` 宏
+
+### 1.2.4 模块加载测试
+
+系统开机，判断 `sdio-wifi` 是否识别
+
+``` bash
+cat /sys/bus/sdio/devices/mmc0:0001:1/uevent        //可查看SDIO设备ID
+mount -t debugfs none /sys/kernel/debug
+cat /sys/kernel/debug/mmcx/ios                      //可查看WIFI_sdio 相关信息
+```
+
+示例如下
+
+![image](https://user-images.githubusercontent.com/26021085/162905658-4984744e-8e19-4551-a3e7-3c9d2e27b52c.png)
+
+
+将编译好的 `8189fs.ko` 拷贝到文件系统，然后加载驱动模块
+
+``` bash
+sudo depmod             // 第一次加载驱动的时候需要运行此命令
+sudo modprobe cfg80211  // 先加载 cfg80211.ko， IEEE 协议
+sudo modprobe 8189fs    // RTL8189FTV 模块加载 8189fs.ko 模块
+```
+
+然后可以使用 `ifconfig -a` 查看到 `wlan0` 设备
+
+参考：
+[全志A40i移植 RTL8188FTV/RTL8188FU USB-WiFi](https://xiaohuisuper.blog.csdn.net/article/details/121113707?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2.pc_relevant_antiscanv2&utm_relevant_index=5)
+
+[H5上rtl8189ftv wifi驱动移植](https://blog.csdn.net/jklinux/article/details/78737691)
+
+[I.MX6 AW-NB177NF wifi HAL 调试修改](https://www.shuzhiduo.com/A/8Bz8R9ro5x/)
+
+[Linux SD卡/SDIO驱动开发](https://blog.csdn.net/h_8410435/article/details/105427238)
+
+#  2. 软件安装
+##  2.1 can 工具
+
 ``` bash
 sudo apt install can-utils iproute2
 ```
 
-##  3. <a name='-1'></a>开机后操作
-###  3.1. <a name='can-1'></a>1、can初始化
+##  2.2 wifi 工具
+
+``` bash
+sudo apt install wireless-tools udhcpc
+```
+
+#  3. 开机后操作
+##  3.1 can初始化
+
 ``` bash
 sudo ip link set can0 type can bitrate 250000   # 设置波特率
 
@@ -102,3 +215,6 @@ sudo echo 1024 > /sys/class/net/can0/tx_queue_len   # 设定缓冲区大小
 
 sudo ifconfig can0 up
 ```
+
+## 3.2 wifi自动连接
+
