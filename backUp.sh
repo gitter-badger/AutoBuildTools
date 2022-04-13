@@ -82,7 +82,7 @@ if [[ $Type_Chose -eq 9 ]]; then            # This script;
         git add .
         
         echo -e "\n Please input commit message:"
-        echo -e "\n -> "
+        echo -e "\n -> \c"
         read git_MSG
 
         git commit -m "$git_MSG"
@@ -134,7 +134,7 @@ case $Type_Chose in                         # stm32mp157
             git add .
         
             echo -e "\n Please input commit message:"
-            echo -e "\n -> "
+            echo -e "\n -> \c"
             read git_MSG
 
             git commit -m "$git_MSG"
@@ -168,7 +168,7 @@ case $Type_Chose in                         # stm32mp157
             git add .
         
             echo -e "\n Please input commit message:"
-            echo -e "\n -> "
+            echo -e "\n -> \c"
             read git_MSG
 
             git commit -m "$git_MSG"
@@ -202,7 +202,7 @@ case $Type_Chose in                         # stm32mp157
             git add .
         
             echo -e "\n Please input commit message:"
-            echo -e "\n -> "
+            echo -e "\n -> \c"
             read git_MSG
 
             git commit -m "$git_MSG"
