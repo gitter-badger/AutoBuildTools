@@ -20,10 +20,6 @@ if [ $# == 0 ]; then
         echo -e "$blue|--------------------------------------------------|$clear"
         echo -e "$V_line $yellow  [99]:$clear$blue Back up all files to Baidu Cloud Drive!  $clear$V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
-        echo -e "$V_line$green_flash  ** This script **                               $clear$V_line"
-        echo -e "$blue|--------------------------------------------------|$clear"
-        echo -e "$V_line $yellow  [9]:$clear Back-Up         $V_line $yellow  [6]:$clear Recovery         $V_line"
-        echo -e "$blue|--------------------------------------------------|$clear"
         echo -e "$V_line$green_flash  ** STM32MP157 **                                $clear$V_line"
         echo -e "$blue|--------------------------------------------------|$clear"
         echo -e "$V_line $yellow  1:$clear Kernel image      $V_line $yellow  2:$clear uboot image        $V_line"
@@ -66,45 +62,6 @@ else
     exit 0
 fi
 
-#----------------------------------------------------------------------------------
-if [[ $Type_Chose == 6 || $Type_Chose == 9 ]]; then
-
-    cd $WINDOWS_SHARE_DIR
-    if [ $? != 0 ]; then        # 判断上一条命令是否成功执行;
-        echo -e "\n$blue/==================================================\\\\$clear"
-        echo -e "$V_line $red                    [ Fail ]                    $clear $V_line"
-        echo -e "$V_line $red      **** No windows Code connection! ****     $clear $V_line"
-        echo -e "$blue\\==================================================/$clear"
-        exit 0
-    fi
-
-    if [[ $Type_Chose -eq 9 ]]; then            # 备份;
-        cd $SHELL_ROOT_PATH
-        git add .
-        
-        echo -e "\n Please input commit message:\n"
-        read git_MSG
-
-        git commit -m "$git_MSG"
-        git push origin master
-        
-        echo -e "\n$blue/==================================================\\\\$clear"
-        echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
-        echo -e "$V_line $green          **** Backup Successful! ****          $clear $V_line"
-    elif [[ $Type_Chose -eq 6 ]]; then          # 恢复;
-        cd $SHELL_ROOT_PATH/..
-        rm $SHELL_ROOT_PATH -fr
-
-        git clone --depth 1 git@github.com:hsl416604093/AutoBuildTools.git
-
-        echo -e "\n$blue/==================================================\\\\$clear"
-        echo -e "$V_line $green                  [  Notice  ]                  $clear $V_line"
-        echo -e "$V_line $green         **** Recovery Successful! ****         $clear $V_line"
-    fi
-
-    sync
-    echo -e "$blue\\==================================================/$clear"
-fi
 #----------------------------------------------------------------------------------
 
 case $Type_Chose in

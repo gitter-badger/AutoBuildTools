@@ -9,9 +9,7 @@
 - [2. 软件安装](#2-软件安装)
   - [2.1 can 工具](#21-can-工具)
   - [2.2 wifi 工具](#22-wifi-工具)
-- [3. 开机后操作](#3-开机后操作)
-  - [3.1 can初始化](#31-can初始化)
-  - [3.2 wifi自动连接](#32-wifi自动连接)
+- [3. 开机后自定义初始化操作](#3-开机后自定义初始化操作)
 
 ---
 
@@ -153,8 +151,8 @@ wifi_pwrseq: wifi-pwrseq {
 
 内核配置上勾选 (M)rtl8189fs，编译生成模块。
 
-
 关闭驱动打印调试信息
+
 修改文件 `\drivers\net\wireless\rtl8189fs\include\autoconf.h`，屏蔽 `CONFIG_DEBUG` 宏
 
 ### 1.2.4 模块加载测试
@@ -204,17 +202,7 @@ sudo apt install can-utils iproute2
 sudo apt install wireless-tools udhcpc
 ```
 
-#  3. 开机后操作
-##  3.1 can初始化
+#  3. 开机后自定义初始化操作
 
-``` bash
-sudo ip link set can0 type can bitrate 250000   # 设置波特率
-
-sudo chmod 666 /sys/class/net/can0/tx_queue_len
-sudo echo 1024 > /sys/class/net/can0/tx_queue_len   # 设定缓冲区大小
-
-sudo ifconfig can0 up
-```
-
-## 3.2 wifi自动连接
+具体可以查看 `work_shell` 文件夹
 

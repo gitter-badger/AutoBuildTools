@@ -81,7 +81,8 @@ if [[ $Type_Chose -eq 9 ]]; then            # This script;
         cd $SHELL_ROOT_PATH
         git add .
         
-        echo -e "\n Please input commit message:\n"
+        echo -e "\n Please input commit message:"
+        echo -e "\n -> "
         read git_MSG
 
         git commit -m "$git_MSG"
@@ -132,7 +133,8 @@ case $Type_Chose in                         # stm32mp157
 
             git add .
         
-            echo -e "\n Please input commit message:\n"
+            echo -e "\n Please input commit message:"
+            echo -e "\n -> "
             read git_MSG
 
             git commit -m "$git_MSG"
@@ -165,7 +167,8 @@ case $Type_Chose in                         # stm32mp157
 
             git add .
         
-            echo -e "\n Please input commit message:\n"
+            echo -e "\n Please input commit message:"
+            echo -e "\n -> "
             read git_MSG
 
             git commit -m "$git_MSG"
@@ -198,7 +201,8 @@ case $Type_Chose in                         # stm32mp157
 
             git add .
         
-            echo -e "\n Please input commit message:\n"
+            echo -e "\n Please input commit message:"
+            echo -e "\n -> "
             read git_MSG
 
             git commit -m "$git_MSG"

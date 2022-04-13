@@ -1,0 +1,212 @@
+- [0. 文档说明](#0-文档说明)
+- [1. 操作记录](#1-操作记录)
+  - [1.1 设置root用户密码](#11-设置root用户密码)
+  - [1.2 替换软件源](#12-替换软件源)
+  - [1.3 安装软件](#13-安装软件)
+    - [1.3.1 命令行自动安装](#131-命令行自动安装)
+    - [1.3.2 安装Chrome](#132-安装chrome)
+  - [1.4 Vim 配置](#14-vim-配置)
+  - [1.5 zsh 配置](#15-zsh-配置)
+- [2. 系统美化](#2-系统美化)
+  - [2.1 必备软件](#21-必备软件)
+    - [2.1.1 Tweak](#211-tweak)
+    - [2.1.2 GNOME Shell integration](#212-gnome-shell-integration)
+    - [2.1.3 ocs-url](#213-ocs-url)
+  - [2.3 安装扩展](#23-安装扩展)
+  - [2.4 安装主题](#24-安装主题)
+---
+
+# 0. 文档说明
+
+记录 `Ubuntu` 系统从安装到配置开发环境的一些列操作，以及做一些自定义风格的修改。这里也[附带一下我在CSDN博客上的相关操作记录](https://blog.csdn.net/hsl416604093/article/details/80203638)。
+
+系统版本：Ubuntu 20.04
+
+系统镜像下载：
+
+[阿里云镜像站](https://developer.aliyun.com/mirror/)  &emsp; [Ubuntu官网](https://cn.ubuntu.com/download)
+
+
+系统安装时采用最小系统安装，并且安装时也没有下载更新。
+
+# 1. 操作记录
+
+## 1.1 设置root用户密码
+
+``` bash
+sudo passwd root
+```
+
+## 1.2 替换软件源
+
+编辑文件
+
+``` bash
+sudo gedit /etc/apt/sources.list
+```
+
+源地址([阿里云](https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11iQ5Gk9))
+
+```
+deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+```
+
+## 1.3 安装软件
+
+### 1.3.1 命令行自动安装
+
+``` bash
+sudo apt update
+
+sudo apt install -y openssh-server git vim-gtk gdebi zsh autojump
+
+sudo service ssh start
+
+```
+
+### 1.3.2 安装Chrome
+
+卸载自带 Firefox 浏览器
+
+``` bash
+sudo apt purge firefox
+```
+
+下载安装 Chrome
+
+``` bash
+cd ~
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi google-chrome-stable_current_amd64.deb     # 自动下载安装依赖包;
+```
+
+也可以使用 `dpkg` 命令安装 `deb` 包
+
+``` bash
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+当出现缺少依赖错误时，使用
+``` bash
+sudo apt --fix-broken install
+```
+自动安装缺失的依赖，然后再重新安装 `deb` 软件包即可。
+
+## 1.4 Vim 配置
+
+修改文件
+
+`sudo vim /etc/vim/vimrc`
+
+添加以下内容：
+
+``` bash
+set nu        "显示行号
+syntax on     "语法高亮  
+set cursorline     "突出显示当前行
+set ruler          "显示标尺
+ 
+set tabstop=4      "tab键缩进
+set expandtab
+set shiftwidth=4   "空格代替tab
+ 
+set smartindent    "设置缩进
+set smartindent shiftwidth=4     "C语言自动缩进4个字符宽度
+set ignorecase     "搜索忽略大小写
+set hlsearch       "搜索逐字符高亮
+ 
+set incsearch
+set showmatch      "设置匹配模式，输入做括号会出现右括号  
+set showcmd        "输入的命令显示出来，看的清楚些  
+set scrolloff=3    "光标移动到buffer的顶部和底部时保持3行距离
+set nocompatible   "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+ 
+set completeopt=preview,menu     "代码补全
+```
+
+## 1.5 zsh 配置
+
+``` bash
+# 把默认的Shell改成zsh
+chsh -s /bin/zsh
+
+# 安装 oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ 
+# 配置
+sed -i 's/SH_THEME="robbyrussell"/SH_THEME="ys"/' ~/.zshrc
+
+echo ". /usr/share/autojump/autojump.sh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# 安装 zsh-syntax-highlighting 语法高亮插件
+mkdir ~/software/zsh -p
+cd ~/software/zsh
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# 生效
+source ~/.zshrc 
+```
+
+# 2. 系统美化
+
+## 2.1 必备软件
+
+### 2.1.1 Tweak
+
+这是一个美化工具，可以修改各种设置，外观、字体、工作区、扩展等；
+
+``` bash
+# Tweak安装
+sudo apt install gnome-tweak-tool
+
+# 让 gnome 支持插件扩展
+sudo apt install gnome-shell-extensions 
+
+# chrome 浏览器扩展支持，可以使用浏览器安装插件
+sudo apt install chrome-gnome-shell
+```
+
+### 2.1.2 GNOME Shell integration
+
+使用 `Chrome`，在应用商店搜索 `GNOME Shell integration` 安装，这样就可以使用浏览器安装插件了。
+
+### 2.1.3 ocs-url
+
+打开 <https://www.linux-apps.com/p/1136805/> ，下载 `ocs-url` 的 `deb` 包并安装。这样就可以直接在浏览器中使用 `osc` 安装主题了。
+
+## 2.3 安装扩展
+
+扩展网址 <https://extensions.gnome.org>
+
+在以上网站中可以搜索下载安装所需要的扩展插件，然后可以在 `Tweak` 里找到扩展插件，并进行设置。
+
+我自己用的扩展有：
+
+![image](https://user-images.githubusercontent.com/26021085/163124343-2640257c-eac0-4da6-9e1f-2c01aff0501d.png)
+
+## 2.4 安装主题
+
+主题地址：<https://www.pling.com/s/Gnome/browse/cat/135/order/latest/>
+
+在以上的地址里面可以选择自己喜欢的主题，然后在右上角点击 `Install` ，选择一个安装即可。
+
+安装之后就可以在 `Tweak` 里面切换主题了。
+
+类似的光标、图标也可以安装使用。
+
+
