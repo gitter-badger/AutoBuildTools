@@ -4,6 +4,8 @@
 - [2. Node.js 安装配置](#2-nodejs-安装配置)
 - [3. docsify-cli 工具安装](#3-docsify-cli-工具安装)
 - [3. 项目初始化](#3-项目初始化)
+- [4. 本地运行 docsify 项目](#4-本地运行-docsify-项目)
+- [5. 配置文件介绍](#5-配置文件介绍)
 ---
 
 # 1. Docsify 简介
@@ -65,10 +67,33 @@ npm i docsify-cli -g
 docsify init ./Docsify-Guide
 ```
 
+- 更多功能查看 [docsify命令行工具](https://github.com/docsifyjs/docsify-cli)
+
 初始化成功后，可以看到目录下创建的几个文件
 
-index.html 入口文件
-README.md 会做为主页内容渲染
-.nojekyll 用于阻止 GitHub Pages 忽略掉下划线开头的文件
-直接编辑 docs/README.md 就能更新文档内容，当然也可以添加更多页面。
+- `index.html` 入口文件
+- `README.md` 会做为主页内容渲染
+- `.nojekyll` 用于阻止 GitHub Pages 忽略掉下划线开头的文件
+
+直接编辑 `README.md` 就能更新文档内容，当然也可以[添加更多页面](https://docsify.js.org/#/zh-cn/more-pages)。
+
+# 4. 本地运行 docsify 项目
+
+在项目根目录，可以运行 `docsify serve` 启动一个本地服务器；如果在上级目录，可示通过运行 `docsify serve 项目名称` 启动，然后就可以方便地实时预览效果。
+
+默认访问地址 <http://localhost:3000>
+
+# 5. 配置文件介绍
+
+  | 文件作用	| 文件 |
+  | :------: | :--: |
+基础配置项（入口文件） |	index.html
+封面配置文件          |	 _coverpage.md
+侧边栏配置文件        |	 _sidebar.md
+导航栏配置文件        |	 _navbar.md
+主页内容渲染文件      |	 README.md
+浏览器图标	          | favicon.ico
+
+附上[我的 docsify 项目](https://github.com/hsl416604093/AutoBuildTools/tree/master/Docsify-Guide)作为参考。
+
 

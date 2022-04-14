@@ -1,11 +1,6 @@
 - [0. 简介](#0-简介)
 - [1. 安装依赖](#1-安装依赖)
 - [2. 主菜单](#2-主菜单)
-- [3. 文件树结构](#3-文件树结构)
-  - [3.1 STM32MP157](#31-stm32mp157)
-  - [3.2 raspberrypi](#32-raspberrypi)
-  - [3.3 orangepi(H616)](#33-orangepih616)
-- [4. 注意事项](#4-注意事项)
   - [4.1 共享文件](#41-共享文件)
   - [4.2 FileGee 软件](#42-filegee-软件)
 
@@ -35,24 +30,6 @@ sudo apt install dialog
 ```
 
 # 2. 主菜单
-
-![MENU](https://user-images.githubusercontent.com/26021085/162908597-ad863fd4-1048-4ac5-8977-8a83847fb277.png)
-
-# 3. 文件树结构
-
-## 3.1 STM32MP157
-
-![image](https://user-images.githubusercontent.com/26021085/155838185-4cfd4ff7-d9b6-4265-9f99-afdac42f1fb7.png)
-
-## 3.2 raspberrypi
-
-![image](https://user-images.githubusercontent.com/26021085/155838323-c7c1114a-18ed-4611-bd09-3c07e1d2f458.png)
-
-## 3.3 orangepi(H616)
-
-
-
-# 4. 注意事项
 
 ## 4.1 共享文件
 
