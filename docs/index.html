@@ -10,10 +10,9 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- 设置浏览器图标 -->
     <link rel="icon" href="/explore.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="/explore.ico?">
     <!-- 默认主题 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-    <!-- Gitalk，一个现代化的，基于Preact和Github Issue的评论系统 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 
 </head>
 
@@ -87,23 +86,6 @@
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
     <!-- 字数统计 -->
     <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-
-    <!-- Gitalk，一个现代化的，基于Preact和Github Issue的评论系统 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    const gitalk = new Gitalk({
-        clientID: 'Github Application Client ID',
-        clientSecret: 'Github Application Client Secret',
-        repo: 'Github repo',
-        owner: 'Github repo owner',
-        admin: ['Github repo collaborators, only these guys can initialize github issues'],
-        // facebook-like distraction free mode
-        distractionFreeMode: false
-    })
-    </script>
-    
-    
 
 </body>
 
