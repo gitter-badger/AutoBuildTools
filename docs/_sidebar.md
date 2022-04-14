@@ -1,7 +1,11 @@
 <!-- _sidebar.md -->
 
-* Typora+Docsify使用指南
-  * [Docsify使用指南](/ProjectDocs/Docsify使用指南.md) <!--注意这里是相对路径-->
-  * [Typora+Docsify快速入门](/ProjectDocs/Typora+Docsify快速入门.md)
-* Docsify部署
-  * [Docsify部署教程](/ProjectDocs/Docsify部署教程.md)
+* Docsify使用指南
+  * [Docsify使用指南](/docs/Docsify使用手册.md) <!--注意这里是相对路径-->
+
+* Ubuntu
+  * [ubuntu操作记录](/docs/ubuntu操作记录.md)
+
+* MarkDown
+  * [MarkDown语法](/docs/Markdown语法.md)
+

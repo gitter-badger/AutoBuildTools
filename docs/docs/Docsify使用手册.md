@@ -1,3 +1,4 @@
+- [Docsify 使用手册](#docsify-使用手册)
 - [1. Docsify 简介](#1-docsify-简介)
   - [1.1 Docsify 特性](#11-docsify-特性)
   - [1.2 Docsify 模板](#12-docsify-模板)
@@ -7,6 +8,8 @@
 - [4. 本地运行 docsify 项目](#4-本地运行-docsify-项目)
 - [5. 配置文件介绍](#5-配置文件介绍)
 ---
+
+# Docsify 使用手册
 
 # 1. Docsify 简介
 
@@ -94,6 +97,6 @@ docsify init ./Docsify-Guide
 主页内容渲染文件      |	 README.md
 浏览器图标	          | favicon.ico
 
-附上[我的 docsify 项目](https://github.com/hsl416604093/AutoBuildTools/tree/master/Docsify-Guide)作为参考。
+附上[我的 docsify 项目](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)作为参考。&emsp; [效果预览](https://hsl416604093.github.io/AutoBuildTools/#/)
 
 
