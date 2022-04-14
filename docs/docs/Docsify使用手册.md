@@ -7,6 +7,7 @@
 - [3. 项目初始化](#3-项目初始化)
 - [4. 本地运行 docsify 项目](#4-本地运行-docsify-项目)
 - [5. 配置文件介绍](#5-配置文件介绍)
+- [6. 实用插件](#6-实用插件)
 ---
 
 # Docsify 使用手册
@@ -99,4 +100,6 @@ docsify init ./Docsify-Guide
 
 附上[我的 docsify 项目](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)作为参考。&emsp; [效果预览](https://hsl416604093.github.io/AutoBuildTools/#/)
 
+# 6. 实用插件
 
+[分页导航插件](https://github.com/imyelo/docsify-pagination#readme)
