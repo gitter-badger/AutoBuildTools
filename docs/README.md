@@ -15,13 +15,7 @@
 
     AutoBuildTools\AutoBuildTool
 
-> 功能包含
-> * 自动备份 (`部分指定文件`)
-> * 构建debian文件系统
-> * 编译树莓派内核源码
-> * 编译和烧录stm32mp157源码
-> * 编译香橙派 (`H616`)
-
+> 功能包
 
 # 1. 安装依赖
 
@@ -39,10 +33,3 @@ sudo apt install dialog
 参考：<https://www.cnblogs.com/smartjourneys/articles/7992298.html>
 
 ## 4.2 FileGee 软件
-
-备份脚本使用到备份软件 FileGee，需要在软件中建立相应的同步任务，可同步到百度网盘;
-
-软件介绍
-
-    待添加;
-

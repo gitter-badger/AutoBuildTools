@@ -41,7 +41,7 @@
 
 ![image](https://user-images.githubusercontent.com/26021085/163298955-4ba7fd85-343d-40c6-b78f-40a1110df031.png)
 
-Linux下直接下载二进制文件包，解压，然后添加路径到环境变量即可。
+Linux系统直接下载二进制文件包，解压，然后添加路径到环境变量即可。
 
 ``` bash
 PATH=$PATH:/home/lodge/nodejs/bin
@@ -53,13 +53,13 @@ PATH=$PATH:/home/lodge/nodejs/bin
 
 # 3. docsify-cli 工具安装
 
-推荐全局安装 `docsify-cli` 工具，可以方便地创建及在本地预览生成的文档。
+推荐全局安装 `docsify-cli` 工具，可以方便地创建、以及在本地预览生成的文档。
 
 ``` bash
 npm i docsify-cli -g
 ```
 
-成功安装后如下：
+成功安装后显示如下：
 
 ![image](https://user-images.githubusercontent.com/26021085/163303235-948e7101-25c3-426b-b191-c260f4519afb.png)
 
@@ -73,11 +73,11 @@ docsify init ./Docsify-Guide
 
 - 更多功能查看 [docsify命令行工具](https://github.com/docsifyjs/docsify-cli)
 
-初始化成功后，可以看到目录下创建的几个文件
+初始化成功后，可以看到目录中自动创建了以下几个文件
 
-- `index.html` 入口文件
-- `README.md` 会做为主页内容渲染
-- `.nojekyll` 用于阻止 GitHub Pages 忽略掉下划线开头的文件
+- `index.html` 文档主页入口文件
+- `README.md` 主页内容渲染文件
+- `.nojekyll` 阻止 GitHub Pages 忽略下划线开头的文件
 
 直接编辑 `README.md` 就能更新文档内容，当然也可以[添加更多页面](https://docsify.js.org/#/zh-cn/more-pages)。
 
@@ -85,7 +85,7 @@ docsify init ./Docsify-Guide
 
 在项目根目录，可以运行 `docsify serve` 启动一个本地服务器；如果在上级目录，可示通过运行 `docsify serve 项目名称` 启动，然后就可以方便地实时预览效果。
 
-默认访问地址 <http://localhost:3000>
+默认本地访问地址 <http://localhost:3000>
 
 # 5. 配置文件介绍
 
@@ -98,7 +98,7 @@ docsify init ./Docsify-Guide
 主页内容渲染文件      |	 README.md
 浏览器图标	          | favicon.ico
 
-附上[我的 docsify 项目](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)作为参考。&emsp; [效果预览](https://hsl416604093.github.io/AutoBuildTools/#/)
+此[网站源码](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)全部开源。&emsp; 附上[效果预览](https://hsl416604093.github.io/AutoBuildTools/#/)
 
 # 6. 实用插件
 
