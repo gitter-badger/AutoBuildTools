@@ -12,8 +12,9 @@ section.cover.has-mask .mask {
 
 section.cover h1 .anchor span {
     font-family: 'Lobster', cursive;
-    /* color: var(--theme-color); */
-    color:rgb(255, 255, 255);
+    font-size: 48px;
+    color: var(--theme-color);
+    /* color:rgb(255, 255, 255); */
 }
 
 section.cover h2 .anchor span {
