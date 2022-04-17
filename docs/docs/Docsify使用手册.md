@@ -1,4 +1,6 @@
-- [Docsify 使用手册](#docsify-使用手册)
+# 目录
+
+- [目录](#目录)
 - [1. Docsify 简介](#1-docsify-简介)
   - [1.1 Docsify 特性](#11-docsify-特性)
   - [1.2 Docsify 模板](#12-docsify-模板)
@@ -8,9 +10,6 @@
 - [4. 本地运行 docsify 项目](#4-本地运行-docsify-项目)
 - [5. 配置文件介绍](#5-配置文件介绍)
 - [6. 实用插件](#6-实用插件)
----
-
-# Docsify 使用手册
 
 # 1. Docsify 简介
 
@@ -89,14 +88,14 @@ docsify init ./Docsify-Guide
 
 # 5. 配置文件介绍
 
-  | 文件作用	| 文件 |
+  | 文件作用 | 文件 |
   | :------: | :--: |
-基础配置项（入口文件） |	index.html
-封面配置文件          |	 _coverpage.md
-侧边栏配置文件        |	 _sidebar.md
-导航栏配置文件        |	 _navbar.md
-主页内容渲染文件      |	 README.md
-浏览器图标	          | favicon.ico
+基础配置项（入口文件） | index.html
+封面配置文件          | _coverpage.md
+侧边栏配置文件        |  _sidebar.md
+导航栏配置文件        |  _navbar.md
+主页内容渲染文件      | README.md
+浏览器图标           | favicon.ico
 
 此[网站源码](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)全部开源。&emsp; 附上[效果预览](https://echoheim.github.io/AutoBuildTools/#/)
 

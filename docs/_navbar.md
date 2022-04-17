@@ -1,11 +1,10 @@
 <!-- _navbar.md -->
 
 * 链接到我
-  * [🐮博客园地址🐮](https://www.cnblogs.com/Can-daydayup/)
-  * [Github地址](https://github.com/YSGStudyHards)
-  * [Gitee地址](https://gitee.com/ysgdaydayup)
-  * [烟花](pages/fireflower.html ':ignore')
+  * [🐮CSDN地址🐮](https://blog.csdn.net/hsl416604093)
 
+* 公众号
+  * ![image](https://user-images.githubusercontent.com/26021085/163124343-2640257c-eac0-4da6-9e1f-2c01aff0501d.png)
 
 * 友情链接
   * [Docsify](https://docsify.js.org/#/zh-cn/)

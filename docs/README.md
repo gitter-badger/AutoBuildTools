@@ -1,35 +1,21 @@
-- [0. 简介](#0-简介)
-- [1. 安装依赖](#1-安装依赖)
-- [2. 主菜单](#2-主菜单)
-  - [4.1 共享文件](#41-共享文件)
-  - [4.2 FileGee 软件](#42-filegee-软件)
+# MacLodge’s Blog 💕
 
----
+#### 个人简介
 
-# 0. 简介
+> 前端工程师 ｜　骑行爱好者　| 　sunniejs@163.com
 
-本shell脚本是为了简化本人在工作中遇到的一些不必要的操作而编写的自动化脚本，脚本运行`不具有`通用性；  
-`scripts`文件夹内是常用小工具脚本，`WorkBuild/_others_`文件夹内是工作需要的脚本，具体内容可查看相应 Readme.md 文件。
+#### 公众号:前端女塾
 
-主程序
+> 为大学生，初学者学习前端编程提供平台，分享前端技术，学习经验，鼓励更多女生学习技术开发，技术改变世界。
 
-    AutoBuildTools\AutoBuildTool
+ &nbsp;&nbsp;&nbsp;&nbsp;扫描下方二维码:point_down::point_down:关注“前端女塾”
 
-> 功能包
+![logo](_media/640.gif ':size=262x224')
 
-# 1. 安装依赖
+关注公众号：回复“加群”即可加 前端仙女群
 
-``` bash
-sudo apt install dialog
-```
 
-# 2. 主菜单
-
-## 4.1 共享文件
-
-备份文件脚本需要使用 windows 与 Ubuntu 文件共享，需要在 windows 文件系统里创建两个文件夹 (BackUp、Code)
-并且设置成共享文件夹，指定用户可访问;
-
-参考：<https://www.cnblogs.com/smartjourneys/articles/7992298.html>
-
-## 4.2 FileGee 软件
+* Docsify使用指南
+  * [Docsify使用指南](/docs/Docsify使用手册.md)   <!--注意这里是相对路径-->
+  * [ubuntu操作记录](/docs/ubuntu操作记录.md)
+  * [MarkDown语法](/docs/Markdown语法.md)

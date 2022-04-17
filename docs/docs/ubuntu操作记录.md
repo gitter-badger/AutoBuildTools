@@ -1,4 +1,6 @@
-- [Ubuntu操作记录](#ubuntu操作记录)
+# 目录
+
+- [目录](#目录)
 - [0. 文档说明](#0-文档说明)
 - [1. 操作记录](#1-操作记录)
   - [1.1 设置root用户密码](#11-设置root用户密码)
@@ -15,8 +17,6 @@
     - [2.1.3 ocs-url](#213-ocs-url)
   - [2.3 安装扩展](#23-安装扩展)
   - [2.4 安装主题](#24-安装主题)
----
-# Ubuntu操作记录
 
 # 0. 文档说明
 
@@ -27,7 +27,6 @@
 系统镜像下载：
 
 [阿里云镜像站](https://developer.aliyun.com/mirror/)  &emsp; [Ubuntu官网](https://cn.ubuntu.com/download)
-
 
 系统安装时采用最小系统安装，并且安装时也没有下载更新。
 
@@ -49,7 +48,7 @@ sudo gedit /etc/apt/sources.list
 
 源地址([阿里云](https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11iQ5Gk9))
 
-```
+``` text
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 
@@ -102,9 +101,11 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
 当出现缺少依赖错误时，使用
+
 ``` bash
 sudo apt --fix-broken install
 ```
+
 自动安装缺失的依赖，然后再重新安装 `deb` 软件包即可。
 
 ## 1.4 Vim 配置
@@ -210,5 +211,3 @@ sudo apt install chrome-gnome-shell
 安装之后就可以在 `Tweak` 里面切换主题了。
 
 类似的光标、图标也可以安装使用。
-
-

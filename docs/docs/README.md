@@ -1,9 +1,7 @@
 <!-- _sidebar.md -->
 
-<!-- # <center> Main Menu -->
+# [Main Menu](/README.md)
 
-&ensp;
-  
 * Docsify使用指南
   * [Docsify使用指南](/docs/Docsify使用手册.md)   <!--注意这里是相对路径-->
   * [ubuntu操作记录](/docs/ubuntu操作记录.md)
