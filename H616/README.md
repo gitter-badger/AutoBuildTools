@@ -9,7 +9,9 @@
 - [2. 软件安装](#2-软件安装)
   - [2.1 can 工具](#21-can-工具)
   - [2.2 wifi 工具](#22-wifi-工具)
-- [3. 开机后自定义初始化操作](#3-开机后自定义初始化操作)
+- [3. 开机后初始化操作](#3-开机后初始化操作)
+  - [3.1 首次开机初始化](#31-首次开机初始化)
+  - [3.2 正常开机初始化](#32-正常开机初始化)
 
 ---
 
@@ -202,7 +204,28 @@ sudo apt install can-utils iproute2
 sudo apt install wireless-tools udhcpc
 ```
 
-#  3. 开机后自定义初始化操作
+# 3. 开机后初始化操作
+
+## 3.1 首次开机初始化
+
+扩容根分区、创建 `fat` 分区，便于 windows 系统能修改镜像配置。  
+具体执行脚本为 `expand_rootfs.sh` ，放在 `/etc/rc.local` 脚本中开机自运行。
+
+准备工作：
+
+* 安装lvm磁盘分区工具
+
+``` bash
+sudo apt install lvm2
+```
+
+* 安装磁盘格式化工具
+
+``` bash
+sudo apt install mtd-utils
+```
+
+## 3.2 正常开机初始化
 
 具体可以查看 `work_shell` 文件夹
 
