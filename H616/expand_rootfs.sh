@@ -50,7 +50,6 @@ sudo umount /udisk
 #-----------------------
 
 mkdir /home/orangepi/scripts
-
 cd /home/orangepi/scripts
 
 touch init.sh
@@ -64,8 +63,9 @@ sudo mount /dev/mmcblk1p2 /udisk/
 cd /udisk/gcode
 sudo cp ./* /home/orangepi/ -fr
 cd ../
-sudo cp ./wpa_supplicant /etc/
+sudo cp ./wpa_supplicant.conf /etc/
 
+cd /
 sudo umount /udisk
 
 sudo killall wpa_supplicant

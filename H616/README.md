@@ -209,7 +209,7 @@ sudo apt install wireless-tools udhcpc
 ## 3.1 首次开机初始化
 
 扩容根分区、创建 `fat` 分区，便于 windows 系统能修改镜像配置。  
-具体执行脚本为 `expand_rootfs.sh` ，放在 `/etc/rc.local` 脚本中开机自运行。
+具体执行脚本为 `expand_rootfs.sh` ，可以在 `/etc/rc.local` 脚本中添加开机自运行。
 
 准备工作：
 
