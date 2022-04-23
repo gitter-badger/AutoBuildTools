@@ -1,6 +1,5 @@
 <!-- _coverpage.md -->
 
-
 # MacLodge’s Blog 
 
 ## 技术改变世界

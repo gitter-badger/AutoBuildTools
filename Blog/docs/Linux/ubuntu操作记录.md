@@ -8,6 +8,7 @@
   - [1.3 安装软件](#13-安装软件)
     - [1.3.1 命令行自动安装](#131-命令行自动安装)
     - [1.3.2 安装Chrome](#132-安装chrome)
+    - [1.3.3 SSH 访问服务器](#133-ssh-访问服务器)
   - [1.4 Vim 配置](#14-vim-配置)
   - [1.5 zsh 配置](#15-zsh-配置)
 - [2. 系统美化](#2-系统美化)
@@ -107,6 +108,68 @@ sudo apt --fix-broken install
 ```
 
 自动安装缺失的依赖，然后再重新安装 `deb` 软件包即可。
+
+### 1.3.3 SSH 访问服务器
+
+* 安装 `ssh-server`
+
+``` bash
+sudo apt-get install openssh-server
+```
+
+* 启动 `ssh` 服务
+
+``` bash
+sudo service ssh start
+```
+
+* 查看 `ssh` 服务是否启动
+
+``` bash
+sudo ps -e |grep ssh   
+```
+
+* 修改配置文件 `/etc/ssh/sshd_config`，配置文件中增加一句 `PermitRootLogin yes`，允许 `root` 用户登录。
+
+* 通过 `ssh` 远程访问服务器
+
+``` bash
+ssh user@ip
+```
+
+> eg：ssh root@192.168.1.152 
+
+* 从服务器上下载文件
+
+``` bash
+scp username@servername:/path/filename /var/www/local_dir（本地目录）
+```
+> 例：scp root@192.168.0.101:/var/www/test.txt  
+> 把192.168.0.101上的/var/www/test.txt 的文件下载到/var/www/local_dir（本地目录）
+
+* 上传本地文件到服务器 
+  
+``` bash
+scp /path/filename username@servername:/path
+``` 
+> 例：scp /var/www/test.c root@192.168.0.101:/var/www/   
+> 把本机/var/www/目录下test.c文件上传到192.168.0.101服务器上的/var/www/目录中
+
+* 从服务器下载整个目录 
+
+``` bash
+scp -r username@servername:/var/www/remote_dir/  /var/www/local_dir 
+```
+> 例：scp -r root@192.168.0.101:/var/www/test /var/www/
+
+* 上传目录到服务器 
+
+``` bash
+scp -r local_dir username@servername:remote_dir
+```
+> 例：scp -r test root@192.168.0.101:/var/www/   
+> 把当前目录下的test目录上传到服务器的/var/www/ 目录
+
 
 ## 1.4 Vim 配置
 
