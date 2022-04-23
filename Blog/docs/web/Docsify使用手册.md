@@ -97,7 +97,7 @@ docsify init ./Docsify-Guide
 主页内容渲染文件     | README.md
 浏览器图标           | favicon.ico
 
-此[网站源码](https://github.com/hsl416604093/AutoBuildTools/tree/master/docs)全部开源。&emsp; 附上[效果预览](https://echoheim.github.io/AutoBuildTools/#/)
+此[网站源码](https://github.com/EchoHeim/AutoBuildTools/tree/master/Blog)全部开源。&emsp; 附上[效果预览](https://echoheim.github.io/AutoBuildTools/)
 
 # 6. 实用插件
 
