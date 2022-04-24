@@ -8,10 +8,11 @@ sudo apt-get update
 sudo apt-get install android-tools-adb
 ```
 
-
+``` bash
 adb -v 
-#有信息表示成功
+```
 
+> 有信息表示成功
 
 # 插入 USB，查看 adb 是否识别安卓设备 
 
@@ -20,37 +21,34 @@ adb -v
 adb devices
 ```
 
-  发现List of devices attached 为空，说明adb还不能识别该设备，但是usb还是能够识别的。 
+若发现 `List of devices attached` 为空，说明 `adb` 还不能识别该设备，但是 `usb` 还是能够识别的。 
 
 # 查看 usb 信息
 
 ``` bash
 lsusb
 ```
+
 比较插入和拔出时打印信息的异同，找到当前设备的信息，如：
 
-``` bash 
-Bus 001 Device 094: ID 1f3a:1007 Onda (unverified) 
-#其中 1f3a 就是设备的 idVendor， 1007 是 idProduct 
-```
+> Bus 001 Device 094: ID 1f3a:1007 Onda (unverified)   
+> 
+> 其中 1f3a 就是设备的 idVendor， 1007 是 idProduct 
+
 
 # 配置 adb
 
-创建并编辑一个51-android.rules配置文件 。
+创建并编辑一个 `51-android.rules` 配置文件。
 
 ``` bash
-
 sudo vim /etc/udev/rules.d/51-android.rules
-
 sudo chmod a+rx /etc/udev/rules.d/51-android.rules
-
-
 ```
 
 加入以下信息
 
 > SUBSYSTEM=="usb", ATTR{idVendor}=="1f3a", ATTR{idProduct}=="1007", MODE="0666" , OWNER=="lodge"
-> #要根据实际填写，OWNER 是当前系统登录用户名
+> #要根据实际填写，`OWNER` 是当前系统登录用户名
 
 增加 adb_usb.ini 文件并编辑使 adb 识别到当前设备 
 
@@ -135,6 +133,4 @@ adb logcat -v time > ./Log_test.log
 
 <https://www.cnblogs.com/mgzc-1508873480/p/7116207.html>
 
-
 <https://www.cnblogs.com/samgxw/p/9425196.html>
-

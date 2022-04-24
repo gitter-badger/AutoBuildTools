@@ -6,8 +6,6 @@ Android 提供一种隐藏式的菜单栏，不占用显示空间又能实现菜
 
 在该文件中添加菜单代码：
 
-
-
 ``` xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
  
