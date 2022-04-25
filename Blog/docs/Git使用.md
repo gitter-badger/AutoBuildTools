@@ -354,3 +354,5 @@ Host github.com
   Port 443
 ```
 
+2、详细介绍git clone --depth=1的用法_白马金羁侠少年的博客-CSDN博客
+<https://blog.csdn.net/qq_43827595/article/details/104833980>
