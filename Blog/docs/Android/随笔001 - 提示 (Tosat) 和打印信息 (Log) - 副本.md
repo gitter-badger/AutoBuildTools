@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 # 2. Log
 
-Android 日志工具类 Log。
+`Android` 日志工具类 `Log`。
 
 > `Log.v()`：用于打印意义最小的日志信息。对应级别 `verbose`。
 
