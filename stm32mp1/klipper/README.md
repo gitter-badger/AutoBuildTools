@@ -17,7 +17,7 @@
 #!/bin/bash
 
 sudo chmod +x /etc/launch_M4.sh
-/etc/launch_M4.sh
+/etc/launch_M4.sh &
 ```
 ---
 

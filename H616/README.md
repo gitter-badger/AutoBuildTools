@@ -201,7 +201,7 @@ sudo apt install can-utils iproute2
 ##  2.2 wifi 工具
 
 ``` bash
-sudo apt install wireless-tools udhcpc
+sudo apt install wireless-tools udhcpc wpasupplicant
 ```
 
 # 3. 开机后初始化操作

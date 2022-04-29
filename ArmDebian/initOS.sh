@@ -52,6 +52,7 @@ sudo touch /etc/udev/rules.d/70-ttyusb.rules
 sudo chmod 666 /etc/udev/rules.d/70-ttyusb.rules
 sudo echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
 sudo echo 'KERNEL=="ttySTM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
+sudo echo 'KERNEL=="ttyACM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
 
 # 开机自启动脚本
 sudo touch /etc/rc.local
@@ -62,6 +63,8 @@ sudo echo '#!/bin/sh -e' >> /etc/rc.local
 sudo echo 'sudo dhclient eth0' >> /etc/rc.local
 
 sudo echo 'sudo chmod 666 /etc/launch_M4.sh' >> /etc/rc.local
+sudo echo 'sudo chmod a+x /etc/launch_M4.sh' >> /etc/rc.local
+
 sudo echo 'bash /etc/launch_M4.sh &' >> /etc/rc.local
 
 #-----------------  Qt  ------------------
@@ -150,9 +153,9 @@ git config --global https.proxy https://$GIT_Proxy_IP:7890/
 cd
 
 sudo resize2fs /dev/mmcblk0p5
-
 sudo resize2fs /dev/mmcblk2p3
 
+sudo chmod u+s /bin/ping
 git clone https://github.com/th33xitus/kiauh.git
 
 sudo rm ~/init_lodge.sh -f
