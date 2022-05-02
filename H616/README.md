@@ -192,6 +192,7 @@ sudo modprobe 8189fs    // RTL8189FTV 模块加载 8189fs.ko 模块
 [Linux SD卡/SDIO驱动开发](https://blog.csdn.net/h_8410435/article/details/105427238)
 
 #  2. 软件安装
+
 ##  2.1 can 工具
 
 ``` bash
@@ -228,4 +229,3 @@ sudo apt install mtd-utils
 ## 3.2 正常开机初始化
 
 具体可以查看 `work_shell` 文件夹
-

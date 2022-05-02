@@ -2,11 +2,8 @@ C++ 中的 struct 对 C 语言中的 struct 进行了扩充，它已经不再只
 
 但是它和 class 最本质的一个区别就是默认的访问控制权限：struct 是 public 的，class 是 private 的。
 
-例如：
-
-
+例如
 ``` C++
-
 struct A
 {
     char a;
@@ -15,24 +12,19 @@ struct B : A
 {
     char b;
 }；
-
 ```
 
-这个时候 B 是 public 继承 A 的。
+这个时候 `B` 是 `public` 继承 `A` 的。
 
 如果都将上面的 struct 改成 class，那么 B 是 private 继承 A 的。所以我们在平时写类继承的时候，通常会这样写：class B : public A，就是为了指明是 public 继承，而不是用默认的 private 继承。
-
 
 当然，struct 可以继承 class，同样 class 也可以继承 struct，所以到底默认是 public 继承还是 private 继承，取决于子类而不是基类。即看子类到底是用的 struct 还是 class。如下：
 
 
 ``` C++
-
-struct A{}；
- 
-class B : A{}; //private继承
-struct C : B{}； //public继承
-
+struct A{};
+class B : A{};     //private继承
+struct C : B{};    //public继承
 ```
 
 struct 作为数据结构的实现体，它默认的数据访问控制是 public 的，而 class 作为对象的实现体，它默认的成员变量访问控制是private 的。在这里，依旧将 struct 看作是一种数据结构的实现体，虽然它是可以像 class 一样的用；依旧将 struct 里的变量叫数据，class 内的变量叫成员，虽然它们并无区别。

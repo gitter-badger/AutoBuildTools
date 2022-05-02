@@ -52,6 +52,7 @@ sudo umount /udisk
 mkdir /home/orangepi/scripts
 cd /home/orangepi/scripts
 
+sudo rm init.sh -fr
 touch init.sh
 chmod +x init.sh
 

@@ -73,7 +73,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 ``` bash
 sudo apt update
 
-sudo apt install -y openssh-server git vim-gtk gdebi zsh autojump
+sudo apt install -y openssh-server git vim-gtk gdebi zsh autojump curl
 
 sudo service ssh start
 
@@ -238,10 +238,10 @@ source ~/.zshrc
 
 ``` bash
 # Tweak安装
-sudo apt install gnome-tweak-tool
+sudo apt install gnome-tweaks
 
 # 让 gnome 支持插件扩展
-sudo apt install gnome-shell-extensions 
+sudo apt install gnome-shell-extensions
 
 # chrome 浏览器扩展支持，可以使用浏览器安装插件
 sudo apt install chrome-gnome-shell
@@ -271,6 +271,9 @@ sudo apt install chrome-gnome-shell
 
 在以上的地址里面可以选择自己喜欢的主题，然后在右上角点击 `Install` ，选择一个安装即可。
 
+或者点击下载，然后解压到主题目录 `/usr/share/themes` 下，鼠标指针图标路径 `/usr/share/icons`。
+
 安装之后就可以在 `Tweak` 里面切换主题了。
 
 类似的光标、图标也可以安装使用。
+

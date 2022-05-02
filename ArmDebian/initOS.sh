@@ -142,6 +142,8 @@ sudo apt update
 
 # sudo apt install nginx -y
 
+sudo apt install usbutils -y
+
 echo "export PATH=\$PATH:/usr/sbin" >> ~/.bashrc
 source ~/.bashrc
 
