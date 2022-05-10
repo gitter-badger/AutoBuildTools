@@ -58,13 +58,6 @@ if [[ \${filelist[2]} == mmcblk1p2 ]]; then
     sudo mount /dev/mmcblk1p2 /udisk/
 fi
 
-# 端口权限
-sudo touch /etc/udev/rules.d/70-ttyusb.rules
-sudo chmod 666 /etc/udev/rules.d/70-ttyusb.rules
-sudo echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
-sudo echo 'KERNEL=="ttySTM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
-sudo echo 'KERNEL=="ttyACM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
-
 #-----------------------
 cd /udisk
 sudo mkdir gcode
@@ -83,14 +76,6 @@ chmod +x init.sh
 cat >> init.sh << EOF
 #!/bin/bash
 
-cd /home/orangepi
-
-if [ -e "expand_rootfs.sh" ];then  
-    sudo rm ./expand_rootfs.sh -fr
-fi
-
-sudo chown orangepi:orangepi /home/orangepi/ -R
-
 c=0
 cd /dev
 for file in \`ls mmcblk*\`
@@ -98,6 +83,13 @@ do
     filelist[\$c]=\$file
     ((c++))
 done
+
+cd /home/orangepi/scripts
+if [ -e "expand_rootfs.sh" ];then  
+    sudo rm ./expand_rootfs.sh -fr
+fi
+
+sudo chown orangepi:orangepi /home/orangepi/ -R
 
 sudo mkdir /udisk
 if [[ \${filelist[2]} == mmcblk0p2 ]]; then
@@ -109,10 +101,15 @@ if [[ \${filelist[2]} == mmcblk1p2 ]]; then
 fi
 
 cd /udisk/gcode
-sudo cp ./* /home/orangepi/gcode_files -fr
-sudo rm ./* -fr
+if ls *.gcode > /dev/null 2>&1;then
+    sudo cp ./*.gcode /home/orangepi/gcode_files -fr
+    sudo rm ./*.gcode -fr
+fi
+
 cd /udisk
-sudo cp ./wpa_supplicant.conf /etc/
+if [ -e "wpa_supplicant.conf" ];then
+    sudo cp ./wpa_supplicant.conf /etc/
+fi
 
 cd /
 sudo umount /udisk
@@ -126,6 +123,6 @@ EOF
 # trap "sudo rm ~/expand_rootfs.sh -f" EXIT		#脚本退出执行trap后面双引号中的命令
 # sudo sed -i 's/\/home\/orangepi\/expand_rootfs.sh/sudo rm \/home\/orangepi\/expand_rootfs.sh/' /etc/rc.local
 
-sudo sed -i 's/expand_rootfs.sh/scripts\/init.sh/' /etc/rc.local
+sudo sed -i 's/expand_rootfs.sh/init.sh/' /etc/rc.local
 
 sudo reboot

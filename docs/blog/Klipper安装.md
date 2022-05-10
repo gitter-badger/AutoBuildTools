@@ -35,9 +35,9 @@ cd ~
 
 # 3. 异常情况解决
 
-一般来说，保证安装过程中网络通畅，成功安装 klipper、moonraker、fluidd 是没有问题的，出现安装失败，运行 kiauh 脚本卸载对应模块，重新安装即可。
+一般来说，保证安装过程中网络通畅，成功安装 `klipper`、`moonraker`、`fluidd` 是没有问题的，出现安装失败，运行 `kiauh` 脚本卸载对应模块，重新安装即可。
 
-对于 klipperscreen，若显示屏没有出现 klipper 界面，可以运行查看 klipperscreen 服务状态
+对于 `klipperscreen`，若显示屏没有出现 `klipper` 界面，可以运行查看 `klipperscreen` 服务状态
 
 ``` bash
 journalctl -xe -u KlipperScreen.service
@@ -54,11 +54,17 @@ allowed_users=anybody
 needs_root_rights=yes
 ```
 
-## 3.2 klipperscreen 安装失败
+## 3.2 安装 libgl1-mesa-dri
+
+``` bash
+sudo apt install libgl1-mesa-dri
+```
+
+## 3.3 klipperscreen 重新安装
 
 可以尝试以下安装方法
 
-* 1、修改 `~/kiauh/scripts/install_klipperscreen.sh` 文件
+1. 修改 `~/kiauh/scripts/install_klipperscreen.sh` 文件
 
 ``` text
 cd ${HOME} && git clone $KLIPPERSCREEN_REPO
@@ -68,30 +74,30 @@ cd ${HOME} && git clone $KLIPPERSCREEN_REPO
 cd ${HOME} && cp -r ${GITHUB_SRC}/KlipperScreen .
 ```
 
-* 2、新建文件夹
+2. 新建文件夹
 
 ``` bash
 mkdir ~/kiauh/github_src
 ```
 
-* 3、下载源码
+3. 下载源码
 
 ``` bash
 cd ~/kiauh/github_src
 git clone https://github.com/jordanruthe/KlipperScreen.git
 ```
 
-* 4、修改 `~/kiauh/github_src/KlipperScreen/scripts/KlipperScreen-install.sh` 文件
+4. 修改 `~/kiauh/github_src/KlipperScreen/scripts/KlipperScreen-install.sh` 文件
 
 ``` text
-PKGLIST="xserver-xorg-video-fbturbo xdotool xinit xinput x11-xserver-utils libopenjp2-7 python3-distutils"
+FBTURBO="xserver-xorg-video-fbturbo"
 ```
 替换为：
 ``` text
-PKGLIST="xserver-xorg xserver-xorg-legacy xdotool xinit xinput x11-xserver-utils libopenjp2-7 python3-distutils"
+FBTURBO="xserver-xorg"
 ```
 
-* 5、添加 `~/kiauh/kiauh.sh` 文件
+5. 添加 `~/kiauh/kiauh.sh` 文件
 
 添加以下内容
 ``` text
@@ -100,10 +106,8 @@ PKGLIST="xserver-xorg xserver-xorg-legacy xdotool xinit xinput x11-xserver-utils
 GITHUB_SRC=${SRCDIR}/kiauh/github_src
 ```
 
-* 6、重新运行 `kiauh` 脚本安装
+6. 运行 `kiauh` 脚本，卸载 `KlipperScreen`，重新安装
 
-## 3.3 安装 libgl1-mesa-dri
+---
 
-``` bash
-sudo apt install libgl1-mesa-dri
-```
+参考：<https://user-images.githubusercontent.com/26021085/167590452-d8d5d043-f6f8-4f78-8905-c4a38b4441e0.png>
