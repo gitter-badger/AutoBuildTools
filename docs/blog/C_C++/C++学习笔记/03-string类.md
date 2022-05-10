@@ -1,6 +1,10 @@
-引言：在 C++ 中，大大加强了对字符串的支持和处理，除了兼容 C 语言的字符串，还内置了完全可以替换 C语言中的字符数组和字符串指针的 string 类。
+# 1. 引言
 
-使用 string 类需要包含头文件 <string>。
+在 `C++` 中，大大加强了对字符串的支持和处理，除了兼容 `C` 语言的字符串，还内置了完全可以替换 `C` 语言中的字符数组和字符串指针的 `string` 类。
+
+# 2. string使用
+
+使用 `string` 类需要包含头文件 `<string>`。
 
 简单例子：
 ``` C++
@@ -15,25 +19,28 @@ int main(){
     string s4 (5, 'c');
     return 0;
 }
- 
-//变量 s1 只是定义但没有初始化，编译器会将默认值赋给 s1，默认值是""，也即空字符串。
-//变量 s2 在定义的同时被初始化为"c plus plus"。与C风格的字符串不同，string 的结尾没有结束标志'\0'。
-//变量 s3 在定义的时候直接用 s2 进行初始化，因此 s3 的内容也是"c plus plus"。
-//变量 s4 被初始化为由 5 个'c'字符组成的字符串，也就是"ccccc"。
 ```
 
-string 类提供字符串长度函数 length()，如：
+> 变量 `s1` 只是定义但没有初始化，编译器会将默认值赋给 `s1`，默认值是 `""`，也即空字符串。
+> 
+> 变量 `s2` 在定义的同时被初始化为 `c plus plus`。与C风格的字符串不同，`string` 的结尾没有结束标志 `\0`。
+> 
+> 变量 `s3` 在定义的时候直接用 `s2` 进行初始化，因此 `s3` 的内容也是 `c plus plus`。
+> 
+> 变量 `s4` 被初始化为由 `5` 个 `c` 字符组成的字符串，也就是 `ccccc`。
+
+`string` 类提供字符串长度函数 `length()`，如：
 
 ``` C++
 string s = "hello C++!";
 int len = s.length();
 cout<<len<<endl;
- 
-//输出结果：10 
-//因为没有结尾的 '\0'字符
 ```
 
-转换为 C语言风格的函数 c_str()，如：
+> 输出结果 `10`，因为没有结尾的 `\0` 字符
+
+
+转换为 `C` 语言风格的函数 `c_str()`，如：
 
 ``` C++
 string path = "D:\\ceshi.txt";
@@ -41,7 +48,7 @@ FILE *fp = fopen(path.c_str(), "rt");
 //使用 C语言的 fopen() 函数打开文件，所以要将 string 字符串转换为 C语言风格的字符串。
 ```
 
-string 类的读写或其中字符的访问都可以看作变量或数组：
+`string` 类的读写或其中字符的访问都可以看作变量或数组，如：
 
 ``` C++
 #include <iostream>
@@ -57,12 +64,12 @@ int main(){
     for(int i=0,len=s.length(); i<len; i++){
         cout<<s[i]<<" ";
     }
- 
+
     return 0;
 }
 ```
 
-string 类字符串拼接
+# 2. string类字符串拼接
 
 可以直接使用 + 或 += 运算符，而不需要使用 C语言里的 strcat()、strcpy()、malloc() 等函数，也不用担心空间溢出。例：
 
@@ -70,7 +77,7 @@ string 类字符串拼接
 #include <iostream>
 #include <string>
 using namespace std;
- 
+
 int main(){
     string s1 = "first ";
     string s2 = "second ";

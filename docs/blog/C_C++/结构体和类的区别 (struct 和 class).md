@@ -2,12 +2,14 @@ C++ 中的 struct 对 C 语言中的 struct 进行了扩充，它已经不再只
 
 但是它和 class 最本质的一个区别就是默认的访问控制权限：struct 是 public 的，class 是 private 的。
 
-例如
+* 例如
+
 ``` C++
 struct A
 {
     char a;
 }；
+
 struct B : A
 {
     char b;

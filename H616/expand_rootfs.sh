@@ -1,14 +1,21 @@
 #!/bin/bash
 
-cd /
-sudo mkdir /udisk
+c=0
+cd /dev
+for file in `ls mmcblk*`
+do
+  filelist[$c]=$file
+  ((c++))
+done
 
-ROOT_DEV=/dev/mmcblk1
+cd /
+
+ROOT_DEV=/dev/${filelist[0]}
 
 ROOT_NUM=1
 UDISK_NUM=2
 
-PART_SIZE=`cat /sys/block/mmcblk1/size`
+PART_SIZE=`cat /sys/block/${filelist[0]}/size`
 
 UDISK_START=`expr $PART_SIZE - 614400`
 
@@ -37,19 +44,36 @@ b
 w
 EOF
 
-sudo resize2fs /dev/mmcblk1p1           # 扩展分区;
+sudo resize2fs /dev/${filelist[1]}           # 扩展分区;
 
-sudo mkfs.fat /dev/mmcblk1p2            # 格式化分区为 FAT 格式;
+sudo mkdir /udisk
+
+if [[ \${filelist[2]} == mmcblk0p2 ]]; then
+    sudo mkfs.vfat /dev/mmcblk0p2            # 格式化分区为 FAT 格式;
+    sudo mount /dev/mmcblk0p2 /udisk/
+fi
+
+if [[ \${filelist[2]} == mmcblk1p2 ]]; then
+    sudo mkfs.vfat /dev/mmcblk1p2            # 格式化分区为 FAT 格式;
+    sudo mount /dev/mmcblk1p2 /udisk/
+fi
+
+# 端口权限
+sudo touch /etc/udev/rules.d/70-ttyusb.rules
+sudo chmod 666 /etc/udev/rules.d/70-ttyusb.rules
+sudo echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
+sudo echo 'KERNEL=="ttySTM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
+sudo echo 'KERNEL=="ttyACM[0-9]*", MODE="0666"' >> /etc/udev/rules.d/70-ttyusb.rules
 
 #-----------------------
-sudo mount /dev/mmcblk1p2 /udisk/
 cd /udisk
-mkdir gcode 
+sudo mkdir gcode
+
 cd /
 sudo umount /udisk
+sudo rm /udisk -fr
 #-----------------------
 
-mkdir /home/orangepi/scripts
 cd /home/orangepi/scripts
 
 sudo rm init.sh -fr
@@ -57,24 +81,45 @@ touch init.sh
 chmod +x init.sh
 
 cat >> init.sh << EOF
+#!/bin/bash
 
-sudo rm /home/orangepi/expand_rootfs.sh -f
+cd /home/orangepi
 
-sudo mount /dev/mmcblk1p2 /udisk/
+if [ -e "expand_rootfs.sh" ];then  
+    sudo rm ./expand_rootfs.sh -fr
+fi
+
+sudo chown orangepi:orangepi /home/orangepi/ -R
+
+c=0
+cd /dev
+for file in \`ls mmcblk*\`
+do
+    filelist[\$c]=\$file
+    ((c++))
+done
+
+sudo mkdir /udisk
+if [[ \${filelist[2]} == mmcblk0p2 ]]; then
+    sudo mount /dev/mmcblk0p2 /udisk/
+fi
+
+if [[ \${filelist[2]} == mmcblk1p2 ]]; then
+    sudo mount /dev/mmcblk1p2 /udisk/
+fi
+
 cd /udisk/gcode
-sudo cp ./* /home/orangepi/ -fr
-cd ../
+sudo cp ./* /home/orangepi/gcode_files -fr
+sudo rm ./* -fr
+cd /udisk
 sudo cp ./wpa_supplicant.conf /etc/
 
 cd /
 sudo umount /udisk
+sudo rm /udisk -fr
 
-sudo killall wpa_supplicant
-sudo ifconfig eth0 down
-sudo ifconfig wlan0 up
-sudo wpa_supplicant -Dnl80211 -c /etc/wpa_supplicant.conf -i wlan0 &
-sudo udhcpc -i wlan0
-sudo ifconfig eth0 up
+cd /home/orangepi/scripts
+./start_wifi.sh
 
 EOF
 

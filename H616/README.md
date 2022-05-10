@@ -212,9 +212,12 @@ sudo apt install wireless-tools udhcpc wpasupplicant
 扩容根分区、创建 `fat` 分区，便于 windows 系统能修改镜像配置。  
 具体执行脚本为 `expand_rootfs.sh` ，可以在 `/etc/rc.local` 脚本中添加开机自运行。
 
+例如:
+> 将 `expand_rootfs.sh` 脚本放在用户主目录 `/home/orangepi` 下,并赋予可执行权限，然后在 `/etc/rc.local` 中添加 `/home/orangepi/expand_rootfs.sh &` 
+
 准备工作：
 
-* 安装lvm磁盘分区工具
+* 安装 `lvm` 磁盘分区工具
 
 ``` bash
 sudo apt install lvm2
