@@ -17,6 +17,7 @@ SHELL_ROOT_PATH="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"      # 取得当�
 
 WINDOWS_SHARE_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=code         # windows 共享文件夹;
 WINDOWS_BACKUP_DIR=/run/user/1000/gvfs/smb-share:server=$WindowsIP,share=backup
+
 #--------------------------- ArmDebian --------------------------------
 ARM_DEBIAN_ROOTFS_PATH=/home/lodge/ArmDebian
 

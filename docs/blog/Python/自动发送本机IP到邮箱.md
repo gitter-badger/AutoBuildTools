@@ -34,6 +34,11 @@ self_server = autosend_mail.SMTP(user="shilong_native@163.com", password="OPTZKT
 
 参数包括 邮箱、密码、服务器，这里以 `网易163` 邮箱为例，密码不是明文密码，要在邮箱设置里生成一个类似个人令牌的口令，不同邮箱的生成方式都差不多，具体方法可以登录自己的邮箱，在设置页查看，或者百度。
 
+* 以 `QQ` 邮箱为例（其他邮箱类似）
+
+> 【qq邮箱——设置——账户——POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务——IMAP/SMTP服务——开启】
+
+> 公共邮箱：添加端口号与smtp的属性即可（详细请百度解决）。
 
 ## 2.3 发送邮件
 

@@ -73,10 +73,9 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 ``` bash
 sudo apt update
 
-sudo apt install -y openssh-server git vim-gtk gdebi zsh autojump curl
+sudo apt install -y openssh-server git vim-gtk gdebi zsh autojump curl nfs-kernel-server rpcbind
 
 sudo service ssh start
-
 ```
 
 ### 1.3.2 安装Chrome

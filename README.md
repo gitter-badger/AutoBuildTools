@@ -50,8 +50,6 @@ sudo apt install dialog
 
 ## 3.3 orangepi(H616)
 
-
-
 # 4. 注意事项
 
 ## 4.1 共享文件

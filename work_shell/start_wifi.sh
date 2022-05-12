@@ -5,6 +5,8 @@ sudo ifconfig eth0 down
 
 sudo ifconfig wlan0 up
 
+sudo killall wpa_supplicant
+
 sudo wpa_supplicant -Dnl80211 -c /etc/wpa_supplicant.conf -i wlan0 &
 
 sudo udhcpc -i wlan0

@@ -11,4 +11,3 @@ sudo echo 1024 > /sys/class/net/can0/tx_queue_len
 
 # 打开 can0
 sudo ifconfig can0 up
-
