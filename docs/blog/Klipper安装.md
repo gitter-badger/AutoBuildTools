@@ -1,4 +1,4 @@
-# 目录
+# <center> Klipper安装
 
 # 1. git 下载安装脚本
 

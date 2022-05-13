@@ -1,4 +1,4 @@
-# 目录
+# <center> Linux 使用 adb 抓取 Android 日志
 
 # 1. adb 安装
 

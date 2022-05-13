@@ -1,11 +1,7 @@
 <!-- _sidebar.md -->
 
-* Docsify使用指南
-  * [Docsify使用指南](/docs/web/Docsify使用手册.md)   <!--注意这里是相对路径-->
-  * [ubuntu操作记录](/docs/web/ubuntu操作记录.md)
-  * [MarkDown语法](/docs/Markdown语法.md)
+* [返回](../)   <!-- {docsify-ignore-all} -->
 
-* Linux学习笔记
-  * [Docsify使用指南](/docs/web/Docsify使用手册.md)
-  * [ubuntu操作记录](/docs/web/ubuntu操作记录.md)
-  * [MarkDown语法](/docs/Markdown语法.md)
+* [Git 使用](./blog/Git使用.md "The greatest guide in the world")
+* [Klipper安装](./blog/Klipper安装.md)
+* [MarkDown语法](./blog/Markdown语法.md)

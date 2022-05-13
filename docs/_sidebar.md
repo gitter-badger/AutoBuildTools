@@ -1,10 +1,9 @@
 <!-- _sidebar.md -->
 
-# <center> Main Menu
+* [Android 学习笔记](./blog/Android/README.md)       <!-- {docsify-ignore-all} -->
+* [C++ 学习笔记](./blog/Android/README.md)
+* [Linux 学习笔记](./blog/Android/README.md)
 
-&ensp;
-
-* [Linux学习笔记](./docs/Linux/)   <!--注意这里是相对路径-->
-* [ubuntu操作记录](./docs/ubuntu操作记录.md)
-* [MarkDown语法](./docs/Markdown语法.md)
-* 
+* [Git使用](./blog/Git使用.md "The greatest guide in the world")
+* [Klipper安装](./blog/Klipper安装.md)
+* [MarkDown语法](./blog/Markdown语法.md)

@@ -1,4 +1,4 @@
-# 目录
+# <center> 多个Activity共享全局变量
 
 首先新建一个 `activity` 用来存放需要共享的全局变量的成员和方法，比如这里我新建一个 `MyDataActivity`
 
