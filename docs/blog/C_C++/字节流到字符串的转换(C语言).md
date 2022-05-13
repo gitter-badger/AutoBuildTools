@@ -1,7 +1,8 @@
+# 目录
+
 # 1. 字节流转换为十六进制字符串  
 
 ``` C++
-
 void ByteToHexStr(const unsigned char* source, char* dest, int Length)  
 {  
     int i;  
@@ -27,13 +28,11 @@ void ByteToHexStr(const unsigned char* source, char* dest, int Length)
     }  
     return ;  
 }
-
 ```
 
 # 2. 字节流转换为十六进制字符串的另一种实现方式  
 
 ``` C++
-
 void Hex2Str( const char *sSrc,  char *sDest, int length )  
 {  
     int  i;  
@@ -51,7 +50,6 @@ void Hex2Str( const char *sSrc,  char *sDest, int length )
 # 3. 十六进制字符串转换为字节流
 
 ``` C++
-
 void HexStrToByte(const char* source, unsigned char* dest, int length)  
 {  
     short i;  
@@ -77,4 +75,3 @@ void HexStrToByte(const char* source, unsigned char* dest, int length)
     return ;  
 }  
 ```
-

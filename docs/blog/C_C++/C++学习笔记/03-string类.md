@@ -39,7 +39,6 @@ cout<<len<<endl;
 
 > 输出结果 `10`，因为没有结尾的 `\0` 字符
 
-
 转换为 `C` 语言风格的函数 `c_str()`，如：
 
 ``` C++
@@ -94,6 +93,7 @@ int main(){
  
     return 0;
 }
+
 //运行结果：
 first second
 first third
@@ -101,95 +101,100 @@ first fourth
 first @
 ```
 
-字符串的增删改查
+# 3. 字符串的增删改查
 
-1、插入字符串函数 insert();
+## 3.1 插入函数 insert();
 
 ``` C++
 string& insert (size_t pos, const string& str);
 //pos 表示要插入的位置(下标)；str 表示要插入的字符串;
 ```
 
-2、删除字符串函数 erase();
+## 3.2 删除函数 erase();
+
 ``` C++
 string& erase (size_t pos = 0, size_t len = npos);
 //pos 表示要删除的子字符串的起始下标，len 表示要删除子字符串的长度。如果不指明 len 的话，那么直接删除从 pos 到字符串结束处的所有字符。
 ```
-3、提取字符串函数 substr();
+
+## 3.3 提取函数 substr();
+
 ``` C++
 string substr (size_t pos = 0, size_t len = npos) const;
 //pos 为要提取的子字符串的起始下标，len 为要提取的子字符串的长度。
 ```
-4、字符串查找函数
 
-    a) find() 函数
+## 3.4 字符串查找函数
 
-``` C++
-size_t find (const string& str, size_t pos = 0) const;
-size_t find (const char* s, size_t pos = 0) const;
- 
-//第一个参数为待查找的子字符串，它可以是 string 字符串，也可以是C风格的字符串。
-//第二个参数为开始查找的位置（下标）；如果不指明，则从第0个字符开始查找。
-```
- b) rfind() 函数
+1. find()
 
-  和 find() 函数相似，只不过第二个参数代表最大的查找范围，即该位置以后的就不在查找范围内。
+    ``` C++
+    size_t find (const string& str, size_t pos = 0) const;
+    size_t find (const char* s, size_t pos = 0) const;
+    
+    //第一个参数为待查找的子字符串，它可以是 string 字符串，也可以是C风格的字符串。
+    //第二个参数为开始查找的位置（下标）；如果不指明，则从第0个字符开始查找。
+    ```
 
-    c) finf_first_of() 函数
+2. rfind()
 
-  用于查找子字符串和字符串共同具有的字符在字符串中首次出现的位置。
+    和 find() 函数相似，只不过第二个参数代表最大的查找范围，即该位置以后的就不在查找范围内。
 
- 示例：
+3. finf_first_of()
 
-``` C++
-#include <iostream>
-#include <string>
-using namespace std;
- 
-int main(){
-    string s1, s2, s3;
-    s1 = s2 = "1234567890";
-    s3 = "aaa";
-    s1.insert(5, s3);
-    cout<< s1 <<endl;      //12345aaa67890
-    s2.insert(5, "bbb");
-    cout<< s2 <<endl;      //12345bbb67890
- 
-    s1 = s2 = s3 = "1234567890";
-    s2.erase(5);
-    s3.erase(5, 3);
-    cout<< s1 <<endl;    //1234567890
-    cout<< s2 <<endl;    //12345
-    cout<< s3 <<endl;    //1234590
- 
-    s1 = "first second third";
-    s2 = s1.substr(6, 6);
-    cout<< s1 <<endl;    //first second third
-    cout<< s2 <<endl;    //second
- 
-    s1 = "first second third";
-    s2 = "second";
-    int index = s1.find(s2,5);       //Found at index : 6
-    if(index < s1.length())
-        cout<<"Found at index : "<< index <<endl;
-    else
-        cout<<"Not found"<<endl;
- 
-    s1 = "first second third";
-    s2 = "second";
-    index = s1.rfind(s2,6);          //Found at index : 6
-    if(index < s1.length())
-        cout<<"Found at index : "<< index <<endl;
-    else
-        cout<<"Not found"<<endl;
- 
-    s1 = "first second second third";
-    s2 = "asecond";
-    index = s1.find_first_of(s2);    //Found at index : 3
-    if(index < s1.length())
-        cout<<"Found at index : "<< index <<endl;
-    else
-        cout<<"Not found"<<endl;
-    return 0;
-}
-```
+    用于查找子字符串和字符串共同具有的字符在字符串中首次出现的位置。
+
+   * 示例：
+
+    ``` C++
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main(){
+        string s1, s2, s3;
+        s1 = s2 = "1234567890";
+        s3 = "aaa";
+        s1.insert(5, s3);
+        cout<< s1 <<endl;      //12345aaa67890
+        s2.insert(5, "bbb");
+        cout<< s2 <<endl;      //12345bbb67890
+    
+        s1 = s2 = s3 = "1234567890";
+        s2.erase(5);
+        s3.erase(5, 3);
+        cout<< s1 <<endl;    //1234567890
+        cout<< s2 <<endl;    //12345
+        cout<< s3 <<endl;    //1234590
+    
+        s1 = "first second third";
+        s2 = s1.substr(6, 6);
+        cout<< s1 <<endl;    //first second third
+        cout<< s2 <<endl;    //second
+    
+        s1 = "first second third";
+        s2 = "second";
+        int index = s1.find(s2,5);       //Found at index : 6
+        if(index < s1.length())
+            cout<<"Found at index : "<< index <<endl;
+        else
+            cout<<"Not found"<<endl;
+    
+        s1 = "first second third";
+        s2 = "second";
+        index = s1.rfind(s2,6);          //Found at index : 6
+        if(index < s1.length())
+            cout<<"Found at index : "<< index <<endl;
+        else
+            cout<<"Not found"<<endl;
+    
+        s1 = "first second second third";
+        s2 = "asecond";
+        index = s1.find_first_of(s2);    //Found at index : 3
+        if(index < s1.length())
+            cout<<"Found at index : "<< index <<endl;
+        else
+            cout<<"Not found"<<endl;
+        return 0;
+    }
+    ```
