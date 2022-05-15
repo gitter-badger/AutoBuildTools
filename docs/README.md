@@ -10,6 +10,6 @@
 
 > 互联网是有记忆的，我想留下一些成长的脚印。
 
- &emsp;&emsp;扫描下方二维码 :point_down::point_down: 关注“`程序小猴`”
+&emsp;&emsp;扫描下方二维码 :point_down::point_down: 关注“`程序小猴`”
 
-![logo](Qart_CodeMonkey.gif ':size=340x340')
+![logo](Qart_CodeMonkey.gif ':size=350x350')
