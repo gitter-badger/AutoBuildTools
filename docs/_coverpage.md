@@ -10,4 +10,5 @@
 [马上开始 <i class="iconfont icon-down"></i>](./README.md)
 
 <!-- background image -->
-![back](https://user-images.githubusercontent.com/26021085/163708120-6c45d78a-8286-4edd-bcbe-f99e28d26fd4.png)
+<!-- ![back](https://user-images.githubusercontent.com/26021085/163708120-6c45d78a-8286-4edd-bcbe-f99e28d26fd4.png) -->
+![back](./images/coverpage.png)
