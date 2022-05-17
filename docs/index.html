@@ -76,6 +76,12 @@
                 { nickname: 'koko', avatar: './images/avatar_koko.jpeg' },
                 ],
             },
+            footer: {
+                copy: '<span>Copyright &copy; 2020 - 2022</span>',
+                auth: ' <a href="https://echoheim.github.io/" target="_blank">🏷️ EnjoyToShare Blog</a>',
+                pre: '<hr/>',
+                style: 'text-align: left;',
+            },//添加页脚
         }
     </script>
 
@@ -114,24 +120,34 @@
         // 搜索配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
         window.$docsify = {
 
+    //         search: {
+    //     paths: 'auto',
+    //     placeholder: '🔍 搜索',
+    //     noData: '😒 找不到结果',
+    //     // Headline depth, 1 - 6
+    //     depth: 6,
+    //     maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+    //   },//添加搜索框
+
             search: {
                 maxAge: 86400000,   // 过期时间，单位毫秒，默认一天
                 paths: auto,        // 注意：仅适用于 paths: 'auto' 模式
                 placeholder: '🔍 搜索',
                 // 支持本地化
-                placeholder: {
-                    '/zh-cn/': '🔍 搜索',
-                    '/': '🔍 Type to find'
-                },
+                // placeholder: {
+                //     '/zh-cn/': '🔍 搜索',
+                //     '/': '🔍 Type to find'
+                // },
                 noData: '😒 找不到结果',
                 depth: 4,
-                hideOtherSidebarContent: false,
+                // hideOtherSidebarContent: false,
                 namespace: 'MacLodge`s blog',
-            }
+            },
         }
     </script>
     <!-- 搜索功能支持 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/search.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.11.2/lib/plugins/search.min.js"></script>
 
     <!--在所有的代码块上添加一个的Click to copy按钮允许用户轻易地复制代码-->
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
@@ -167,8 +183,8 @@
     </script>
 
     <!-- 添加页脚 -->
-    <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/docsify-footer-enh.min.js"></script>
-
+    <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+    
     <!-- 添加网站运行时间统计 -->
     <script language=javascript>
         function siteTime() {

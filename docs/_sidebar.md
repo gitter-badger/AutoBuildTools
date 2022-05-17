@@ -8,4 +8,4 @@
 * [Klipper 安装](./blog/Klipper安装.md)
 * [MarkDown 语法](./blog/Markdown语法.md)
 
-* [Docsify 使用手册](./project/Docsify/DocsifyNotes.md.md)
+* [Docsify 使用手册](./project/Docsify/DocsifyNotes.md)
