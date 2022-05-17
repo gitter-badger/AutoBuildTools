@@ -6,6 +6,17 @@
 
 学习笔记 &ensp;|&ensp; 运动生活 &ensp;|&ensp; 技术博客
 
+<br>
+
+<span id="busuanzi_container_site_pv" style='display:none'>
+    👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
+</span>
+
+<br>
+
 [GitHub <i class="iconfont icon-github"></i>](https://github.com/EchoHeim/AutoBuildTools/tree/master/docs/)
 [马上开始 <i class="iconfont icon-down"></i>](./README.md)
 

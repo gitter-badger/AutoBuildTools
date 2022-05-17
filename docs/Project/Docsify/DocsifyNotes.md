@@ -90,4 +90,4 @@ docsify init ./Docsify-Guide
 
 # 6. 实用插件
 
-详见 [Docsify插件](DocsifyPlugin.md)
+详见 [Docsify插件](/project/Docsify/DocsifyPlugin.md)

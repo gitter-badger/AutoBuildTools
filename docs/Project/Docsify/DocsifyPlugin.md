@@ -37,7 +37,7 @@ miao~
         ],
     }
 
-## 6.3 [带标题图片](https://h-hg.github.io/docsify-image-caption/#/)
+## 3. [带标题图片](https://h-hg.github.io/docsify-image-caption/#/)
 
 使用 
 
@@ -47,6 +47,6 @@ miao~
 
 <left> ![](../../images/logo.png 'logo')
 
-## 6.4 [文档更新时间](https://github.com/pfeak/docsify-updated)
+## 4. [文档更新时间](https://github.com/pfeak/docsify-updated)
 
 
