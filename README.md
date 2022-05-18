@@ -11,6 +11,9 @@
 
 ---
 
+[![Join the chat at https://gitter.im/EchoHeim/EnjoyShare](https://badges.gitter.im/EchoHeim/EnjoyShare.svg)](https://gitter.im/EchoHeim/EnjoyShare?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 # 0. 简介
 
 本shell脚本是为了简化本人在工作中遇到的一些不必要的操作而编写的自动化脚本，脚本运行`不具有`通用性；  
